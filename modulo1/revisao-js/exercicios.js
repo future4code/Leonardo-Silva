@@ -56,7 +56,7 @@ function retornaMaiorNumero(array) {
         if(number > maiorNumero){
             maiorNumero = number
         }
-    }
+    } 
     return maiorNumero
 }
 
@@ -113,13 +113,14 @@ function retornaSegundoMaiorESegundoMenor(array) {
     let ordenado = array.sort((primeiro, segundo) => {
         return primeiro - segundo
     })
+
     let novoArray = [ordenado[ordenado.length - 2], ordenado[1]]
     return novoArray 
 }
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-    let novosAtores = filme.atores
+    let novosAtores = filme.atores  
     for(let i = 1; i < novosAtores.length; i++){
         novosAtores[i] = " " + novosAtores[i]
     }
@@ -142,7 +143,7 @@ function retornaPessoasAutorizadas(pessoas) {
                 novoArray.push(pessoa)
             }
         }
-    }  
+    } 
     return novoArray        
 }
 
@@ -182,7 +183,7 @@ function retornaContasComSaldoAtualizado(contas) {
     for(let i = 0; i < newContas.length; i++){
         contas[i].saldoTotal = contas[i].saldoTotal - somasTotal[i]
         contas[i].compras = []
-    }      
+    }
     return contas
 }
 
@@ -204,5 +205,8 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-   
+    let resultado = consultas.sort((valor1, valor2) => {
+        return new Date(valor1.dataDaConsulta.split("/").reverse()).getTime() - new Date(valor2.dataDaConsulta.split("/").reverse()).getTime()
+    })
+    return resultado
 }
