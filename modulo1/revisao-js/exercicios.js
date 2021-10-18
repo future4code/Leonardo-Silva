@@ -29,7 +29,13 @@ function retornaArrayOrdenado(array) {
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-  
+    let numerosPares = []
+    for(let number of array){
+        if(number % 2 === 0){
+            numerosPares.push(number)
+        }
+    }
+    return numerosPares
 }
 
 // EXERCÍCIO 05
