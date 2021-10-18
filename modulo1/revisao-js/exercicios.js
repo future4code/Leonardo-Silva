@@ -182,13 +182,24 @@ function retornaContasComSaldoAtualizado(contas) {
     for(let i = 0; i < newContas.length; i++){
         contas[i].saldoTotal = contas[i].saldoTotal - somasTotal[i]
         contas[i].compras = []
-    }  
+    }      
     return contas
 }
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-  
+    const novoArray = consultas.sort((primeiroValor, segundoValor) => {
+        if (primeiroValor.nome > segundoValor.nome) {
+            return 1
+        }
+
+        if (primeiroValor.nome < segundoValor.nome) {
+            return -1
+        }
+
+        return 0
+    })
+  return novoArray
 }
 
 // EXERCÍCIO 15B
