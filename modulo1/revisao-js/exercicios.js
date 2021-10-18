@@ -148,7 +148,17 @@ function retornaPessoasAutorizadas(pessoas) {
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
-  
+    let novoArray = []
+    for(let pessoa of pessoas){
+        if(pessoa.altura >= 1.5){
+            if(pessoa.idade <= 14 || pessoa.idade > 60){
+                novoArray.push(pessoa)
+            }
+        } else {
+            novoArray.push(pessoa)
+        }
+    }  
+    return novoArray 
 }
 
 // EXERCÍCIO 14
