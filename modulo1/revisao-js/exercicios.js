@@ -21,7 +21,10 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-    
+    let ordemCrescente = array.sort((primeiro, segundo) => {
+        return primeiro - segundo
+    })
+    return ordemCrescente  
 }
 
 // EXERCÍCIO 04
