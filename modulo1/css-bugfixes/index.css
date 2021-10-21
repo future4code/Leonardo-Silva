@@ -19,6 +19,8 @@ h2 {
 input {
     height: 20px;
     width: 500px;
+    border-style: none;
+    border-bottom: solid;
 }
 
 button:focus {
@@ -115,7 +117,7 @@ td button {
 
 .container-do-search {
     margin-top: 20px;
-    height: 100px;
+    height: 200px;
 }
 
 
