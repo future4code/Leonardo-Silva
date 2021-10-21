@@ -50,6 +50,7 @@ div img {
     border-radius: 5px;
     font-size: 20px;
     color: white;
+    margin-top: 50px;
 }
 
 .botao-amarelo:hover {
@@ -75,7 +76,7 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
-    padding-top: 20px;
+    padding-top: 100px;
 }
 
 #container-de-descricao>ol {
@@ -107,6 +108,7 @@ div:last-child {
 table {
     width: 60%;
     text-align: center;
+    margin-left: 25%;
 }
 
 td button {
@@ -131,6 +133,8 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin-left: 45%;
+    margin-top: 100px
 }
 
 #back-button:hover {
