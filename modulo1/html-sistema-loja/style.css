@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:18px;
+    background-color: rgb(211, 213, 219);
+}
+
+#cabecalho {
+    background-color: rgb(140, 171, 228);
+    position:absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    height: 20%;
+    padding-left: 50px; 
+    text-align: left;   
+}
+
+#rodape {
+    background-color: rgb(140, 171, 228);
+    position:absolute; 
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    height: 10%; 
+}
+
+.paginas{
+    background-color: rgb(105, 106, 110);
+    right:0%;
+    text-decoration: none;
+    font-style: italic;
+    color: rgb(236, 231, 245);
+    border-style: solid;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    bottom:2%;   
+}
+
+.sociais{
+    width:50px;
+    height: 50px;
+    position: absolute;
+}
+
+#soci1{
+    bottom:3% ;
+    left:90%;
+}
+
+#soci2{
+    bottom:3% ;
+    left:93%;
+}
+
+#soci3{
+    bottom:3% ;
+    left:96%;
+}
+
+#funcionario{
+    position: absolute;
+    top:20%;
+    left:5%;
+}
+
+#controle{
+    position: absolute;
+    top:20%;
+    left:5%;
+}
+
+#add{
+    position: absolute;
+    top:20%;
+    left:5%; 
+}
+
+
+th{
+    padding-right: 100px;
+    
+}
+
+#labels{
+    padding-bottom: 10px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.form-add{
+    text-align: center;
+}
