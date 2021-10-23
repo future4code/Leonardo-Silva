@@ -1,0 +1,316 @@
+body {
+    font-family:sans-serif;
+    font-size:18px;
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+}
+
+#cabecalho {
+    background-color: rgb(0, 89, 255);
+    position:absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    height: 21%;
+    padding-left: 50px; 
+    text-align: left;
+    z-index: 10;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+#rodape {
+    background-color: rgb(0, 89, 255); 
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    z-index: 10;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    height: 20%;
+}
+
+#corpo1{
+    
+    width: 1500px;
+    min-height: 170vh;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto; 
+    background-color: rgb(255, 255, 255); 
+}
+#corpo2{
+    
+    width: 1500px;
+    min-height: 200vh;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto; 
+    background-color: rgb(255, 255, 255); 
+}
+#corpo3{
+    
+    width: 1500px;
+    height: 70vh;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto; 
+    background-color: rgb(255, 255, 255); 
+}
+
+#paginas{
+    margin-top:3.5%;
+    width: 700px;
+    margin-left:auto ;
+    margin-right:auto;
+    text-align: center;
+     
+    
+      
+}
+
+#paginas a{
+    text-decoration: none;
+    color: rgb(185, 185, 185);
+    font-size:23px;
+    
+}
+
+.un{
+    padding:20px;
+    border-style: hidden;
+    width:100px;
+}
+.un:hover{
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    background-color: rgb(24, 105, 255); 
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+
+h1{
+    width:700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:30px;
+    
+
+}
+
+.round {
+    border-radius: 100%;
+    overflow: hidden;
+    height: 250px;
+    width:250px;
+    background: black;
+    border-style: solid;
+    margin-left: -320px;
+    margin-top: -100px;
+}
+
+#myself{
+    border-style: solid;
+    width: 420px;
+    height: 500px;
+    text-align:left;
+    padding-left: 50px;
+    border-radius: 10% ;
+    border-top-left-radius:0% ;
+    border-top-right-radius:0% ;
+    
+}
+
+#myself p{
+    font-size: 20px;
+    
+}
+
+#sobremim{
+    margin-left:550px;
+    margin-top:-500px;
+}
+
+#sobremim h2{
+    font-size: 50px;
+}
+
+#sobre{
+    font-size:26px;
+}
+
+#fatec{
+    width:320px;
+    height:240px;
+    background-image: url(img/fatec.png);
+    border-style: solid;
+    border-radius: 10%;
+    margin-top:125px;
+    margin-left:-400px;
+}
+
+#instituicoes1{
+    margin-left:0px;
+    margin-top:-185px;
+    font-size:26px;
+
+}
+
+#instituicoes2{
+    margin-left:-110px;
+    margin-top:-155px;
+    font-size:26px;
+
+}
+
+#instituicoes3{
+    margin-left:100px;
+    margin-top:-155px;
+    font-size:26px;
+
+}
+
+#senac{
+    width:320px;
+    height:213px;
+    background-image: url(img/senac.jpg);
+    border-style: solid;
+    border-radius: 10%;
+    margin-top:200px;
+    margin-left:500px;
+}
+
+#labenu{
+    width:425px;
+    height:216px;
+    background-image: url(img/labenu.jpg);
+    border-style: solid;
+    border-radius: 10%;
+    margin-top:200px;
+    margin-left:-400px;
+}
+
+#iconsobre{
+    background-image: url(img/sobre2.png);
+    width:50px;
+    height:50px;
+    margin-left:500px;
+    margin-top: -80px;
+
+}
+
+#iconss{
+    background-image: url(img/giithub.png);
+    width: 80px;
+    height:80px;
+    margin-top: 30px;
+    margin-left:10px;
+    cursor: pointer;
+
+}
+
+#iconss2{
+    background-image: url(img/linkedin.png);
+    width: 80px;
+    height:80px;
+    margin-top: -83px;
+    margin-left:150px;
+    cursor: pointer;
+
+}
+
+#iconss3{
+    background-image: url(img/face.png);
+    width: 80px;
+    height:80px;
+    margin-top: -79px;
+    margin-left:290px;
+    cursor: pointer;
+
+}
+
+#blackjack{
+    width:500px;
+    height:312px;
+    background-image: url(img/blackjack.jpg);
+    border-style: solid;
+    border-radius: 10%;
+    margin-top:300px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#blackjacktexto{
+    margin-left:150px;
+    
+    margin-top:50px;
+    font-size:26px;
+}
+
+#blackjack1{
+    width:507px;
+    height:199px;
+    background-image: url(img/projeto1.png);
+    border-style: solid;
+    border-radius: 10%;
+    margin-top: 100px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#blackjack2{
+    width:494px;
+    height:185px;
+    background-image: url(img/projeto2.png);
+    border-style: solid;
+    border-radius: 10%;
+    margin-top: 100px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#blackjack3{
+    width:490px;
+    height:185px;
+    background-image: url(img/projeto3.png);
+    border-style: solid;
+    border-radius: 10%;
+    margin-top: 100px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#blackjack4{
+    width:486px;
+    height:208px;
+    background-image: url(img/projeto4.png);
+    border-style: solid;
+    border-radius: 10%;
+    margin-top: 100px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.forms{
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 300px;
+    z-index: 12;
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+.enviar{
+    width: 100px;
+    margin-top:10px;
+    margin-left: 290px;
+     
+}
+
