@@ -1,0 +1,186 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    display:flex;
+    flex-direction: column;
+    height:100vh;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+header{
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    height: 8%;
+    background-color:mediumvioletred;
+    text-align: left;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    padding:0 10px;
+    justify-content: space-between;
+}
+
+h1{
+    font-size: 40px;
+    padding-left: 20px;
+}
+
+main{
+    display: flex;
+    flex-grow:1;
+}
+
+#logo{
+    background-image: url(img/cake-1321215613168069161.png);
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+}
+
+#logo1{
+    background-image: url(img/475588.png);
+    background-size:contain;
+    width: 30px;
+    height: 30px;
+}
+
+#logo2{
+    background-image: url(img/img_480095.png);
+    background-size:contain;
+    width: 30px;
+    height: 30px;
+}
+
+#logo3{
+    background-image: url(img/1024px-Ic_shopping_cart_48px.svg.png);
+    background-size:contain;
+    width: 30px;
+    height: 30px;
+}
+
+#logo4{
+    background-image: url(img/account-profile-avatar-man-circle-round-user-30452.webp);
+    background-size:contain;
+    width: 30px;
+    height: 30px;
+}
+
+#logo1 p{
+    padding-left: 50px; 
+    font-size: 24px;
+}
+
+
+#logo2 p{
+    padding-left: 50px;
+    font-size: 24px; 
+}
+
+#logo3 p{
+    padding-left: 50px;
+    font-size: 24px; 
+}
+
+#logo4 p{
+    padding-left: 50px;
+    font-size: 24px; 
+}
+
+#text{
+    font-size: 35px;
+    display:flex;
+    align-items: center;
+}
+
+
+#button{
+    height:25px;
+    padding:0 10px;
+}
+
+p{
+    font-size: 15px;
+}
+
+footer{
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    text-align: center;
+    height: 10%;
+    background-color:mediumvioletred; 
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu{
+    width:20%;
+    background-color: #f2d0e0;
+    display:flex;
+    flex-direction: column;
+}
+
+#bolo{
+    width:80%;
+    display:grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+.chocolate{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.parteDeDentro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width:85%;
+    height:90%;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 10px 5px 5px darkgray;
+    border-left: 1px solid rgb(241, 239, 239);
+    border-bottom: 1px solid rgb(241, 239, 239);
+    
+}
+
+.imagemBolo{
+    height:80%;
+    width:100%;
+    background-image: url(img/bolos-decorados-para-festas-fotos-inspiradoras-48.jpg);
+    background-size:cover;
+}
+
+.menu1{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    height:8%;
+    font-size: 24px;
+    padding-left: 10px;
+}
+
+.setinha{
+    background-image: url(img/1462959.png);
+    background-size:contain;
+    width: 30px;
+    height: 30px;
+}
+
+footer p{
+    font-size: 30px;
+}
+
