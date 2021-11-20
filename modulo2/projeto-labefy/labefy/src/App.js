@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import axios from "axios"
 import "./App.css" 
+import logo from "./img/logo.png"
 import CriacaoPlaylist from "./components/CriacaoPlaylist"
 import ListandoPlaylist from "./components/ListandoPlaylist"
 import PaginaPlaylist from "./components/PaginasPlaylist"
@@ -20,6 +21,16 @@ const MainHeader = styled.header`
   display:flex;
   justify-content:center;
 `
+const DivLogo = styled.img`
+  width:80px;
+  height:80px;
+  padding-right:15px;
+`
+const ImgELogo = styled.div`
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+`
 const MainBody = styled.body`
   display:flex;
   flex-direction:row;
@@ -30,6 +41,7 @@ const MainFooter = styled.footer`
   width:100%;
   height:89px;
   background-color:black;
+  font-family:Circular,spotify-circular,Helvetica,Arial,sans-serif;
 `
 const ListaPlay = styled.div`
   width:20%;
@@ -37,11 +49,19 @@ const ListaPlay = styled.div`
   background-color:gray;
   border-right:1px solid black;
   font-family:Circular,spotify-circular,Helvetica,Arial,sans-serif;
+
+  @media screen and (min-device-width : 320px) and (max-device-width : 480px)  {
+    width:40%;
+    height:498px;
+    a{
+      font-size:14px;
+    }
+  }
 `
 const TelaPrincipal = styled.div`
   width:80%;
-  height:800px;
   background-color:white;
+  height:100%;
 `
 const Paginas = styled.div`
   display:flex;
@@ -49,13 +69,23 @@ const Paginas = styled.div`
   justify-content:space-between;
   align-items:center;
   width:80%;
+  transition: all 0.2s;
 
   h2{
     font-size:18px;
   }
+
   h2:hover{
     color:#00FFFF;
     cursor:pointer;
+    transition: all 0.2s;
+  }
+
+  @media screen and (min-device-width : 320px) and (max-device-width : 480px)  {
+    h2{
+      font-size:14px;
+      padding-left:25px;
+    }
   }
 `
 
@@ -66,8 +96,10 @@ export default class App extends React.Component {
     pagPrincipal: 1,
     entry: [],
     infoQuantidade: 0,
+    quantidadeTotal:0,
     infoPlaylist: [],
     infoId: "",
+    pagTrack: 1,
   }
 
   componentDidMount() {
@@ -80,18 +112,22 @@ export default class App extends React.Component {
       name: this.state.playlist
     }
 
-    try{
-      const res = await axios.post(url, body, {
-        headers: {
-          Authorization: "leonardo-silva-carver"
-        }
-      })
+    if(this.state.quantidadeTotal < 25){ 
+      try{
+        const res = await axios.post(url, body, {
+          headers: {
+            Authorization: "leonardo-silva-carver"
+          }
+        })
 
-      alert("Playlist criada com sucesso!")
-      this.listaPlaylist()
-      this.setState({playlist: ""})
-    } catch(error) {
-      alert(error.response.data.message)
+        alert("Playlist criada com sucesso!")
+        this.listaPlaylist()
+        this.setState({playlist: ""})
+      } catch(error) {
+        alert(error.response.data.message)
+      }
+    } else {
+      alert("Atenção! Número maxímo de playlists atingido.")
     }
   }
 
@@ -109,6 +145,7 @@ export default class App extends React.Component {
         })   
     
         this.setState({lista: res.data.result.list})
+        this.setState({quantidadeTotal: res.data.result.quantity})
     } catch (error) {
         alert(error.response.data.message)
     }
@@ -143,6 +180,7 @@ export default class App extends React.Component {
     .then((res) => {
         alert("Playlist deletada com sucesso!")
         this.listaPlaylist()
+        this.setState({pagPrincipal:1})
     })
     .catch ((error) => {
         alert(error.response.data.message)
@@ -163,6 +201,9 @@ export default class App extends React.Component {
             infoPlaylist={this.state.infoPlaylist}
             infoId={this.state.infoId}
             pegandoAsTracks={this.pegandoAsTracks}
+            pagTrack={this.state.pagTrack}
+            pagTrack1={this.pagTrack1}
+            pagTrack2={this.pagTrack2}
           />
       default:
         return <CriacaoPlaylist
@@ -173,7 +214,7 @@ export default class App extends React.Component {
   }
 
   novaPag = (playlist) => {
-    this.setState({entry: playlist, pagPrincipal: 2, pagPlaylists: 1})
+    this.setState({entry: playlist, pagPrincipal: 2, pagTrack: 1})
     this.pegandoAsTracks(playlist.id)
   }
 
@@ -181,26 +222,25 @@ export default class App extends React.Component {
     this.setState({pagPrincipal: 1})
   } 
 
-  
+  pagTrack1 = () => {
+    this.setState({pagTrack: 1})
+  }
 
+  pagTrack2 = () => {
+    this.setState({pagTrack: 2})
+  }
 
-  
-  
-
- 
   render() { 
     return (
       <MainDiv>
-
         <MainHeader>
           <Paginas>
-            <h1>Labefy</h1>
+            <ImgELogo><DivLogo src={logo}/><h1>Labefy</h1></ImgELogo>
             <h2 onClick={() => this.novaPagPrincipal()}>Criacão de Playlists</h2>
           </Paginas>
         </MainHeader>
         
         <MainBody>
-
           <ListaPlay>
             <ListandoPlaylist
               lista={this.state.lista}
@@ -210,17 +250,13 @@ export default class App extends React.Component {
               pegandoAsTracks={this.pegandoAsTracks}
             />
           </ListaPlay>
-
           <TelaPrincipal>
             {this.selecionandoPag(this.state.pagPrincipal)}
           </TelaPrincipal>
-
         </MainBody>
 
         <MainFooter>
-
         </MainFooter>
-
       </MainDiv>
     );
   }
