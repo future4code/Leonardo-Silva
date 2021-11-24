@@ -42,6 +42,14 @@ const MainFooter = styled.footer`
   height:89px;
   background-color:black;
   font-family:Circular,spotify-circular,Helvetica,Arial,sans-serif;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  
+  p{
+    font-size:12px;
+  }
 `
 const ListaPlay = styled.div`
   width:20%;
@@ -123,6 +131,7 @@ export default class App extends React.Component {
         alert("Playlist criada com sucesso!")
         this.listaPlaylist()
         this.setState({playlist: ""})
+
       } catch(error) {
         alert(error.response.data.message)
       }
@@ -193,6 +202,7 @@ export default class App extends React.Component {
         return <CriacaoPlaylist
             criandoPlaylist={this.criandoPlaylist}
             novaPlaylist={this.novaPlaylist}
+            playlist={this.state.playlist}
           />
       case 2:
         return <PaginaPlaylist
@@ -256,6 +266,7 @@ export default class App extends React.Component {
         </MainBody>
 
         <MainFooter>
+          <p>Desenvolvido por Leonardo Broca ©</p>
         </MainFooter>
       </MainDiv>
     );

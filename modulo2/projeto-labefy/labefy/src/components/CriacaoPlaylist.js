@@ -54,7 +54,7 @@ export default class CriacaoPlaylist extends React.Component {
             <MainDiv>
                 <h1>Criação de Playlist</h1>
                 <p>Digite um nome para sua nova playlist</p>
-                <input placeholder="nome da playlist" onChange={this.props.novaPlaylist}/>
+                <input value={this.props.playlist} placeholder="nome da playlist" onChange={this.props.novaPlaylist}/>
                 <br/>
                 <DivButtonAddPlaylist onClick={this.props.criandoPlaylist}><FiPlusCircle/><p>Adicionar</p></DivButtonAddPlaylist>
             </MainDiv>

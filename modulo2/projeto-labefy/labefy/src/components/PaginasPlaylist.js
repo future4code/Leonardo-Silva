@@ -187,9 +187,9 @@ export default class PaginaPlaylist extends React.Component {
                 }
             case 2:
                 return <DivColumn>
-                    <DivDentro>Nome da Música: <input placeholder="nome música" onChange={this.alterandoMusic}></input></DivDentro>
-                    <DivDentro>Artista: <input placeholder="nome artista(s)" onChange={this.alterandoArtist}></input></DivDentro>
-                    <DivDentro>Link: <input placeholder="link spotify da música" onChange={this.alterandoLink}></input></DivDentro>
+                    <DivDentro>Nome da Música: <input value={this.state.music} placeholder="nome música" onChange={this.alterandoMusic}></input></DivDentro>
+                    <DivDentro>Artista: <input value={this.state.artist} placeholder="nome artista(s)" onChange={this.alterandoArtist}></input></DivDentro>
+                    <DivDentro>Link: <input value={this.state.link} placeholder="link spotify da música" onChange={this.alterandoLink}></input></DivDentro>
                     <DivDentro><button onClick={() => this.adicionandoTrack(this.props.infoId)}>Adicionar</button></DivDentro>
                         </DivColumn>
         }
@@ -213,6 +213,7 @@ export default class PaginaPlaylist extends React.Component {
             alert("Track Adicionada com sucesso")
             this.props.pegandoAsTracks(this.props.infoId)
             this.pagDeTrack(this.props.pagTrack)
+            this.setState({music: "", artist: "", link: ""})
         } catch (error) {
             alert(error.response.data.message)
         }
