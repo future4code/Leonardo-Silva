@@ -1,18 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import UrlBase from '../constants/constants';
 import * as C from './styles'
+import {goToAdminHomePage} from '../Rotas/Rotas'
+import { ProtectedPage } from '../Hooks/ProtectedPages';
 
 
 export const CreateTripPage = () => {
     const navigate = useNavigate()
-
-    const goToAdminHomePage = () => {
-        navigate("/AdminHomePage")
-    }
-
+    ProtectedPage()
+    
     const planetas = ["Mercúrio","Vênus","Marte","Jupiter","Saturno","Urano","Netuno","Plutão"]
 
     const [inputNome, setInputNome] = useState("")
@@ -90,7 +89,7 @@ export const CreateTripPage = () => {
                 <input placeholder="Descrição" type="text" value={inputDescricao} onChange={onChangeDescricao}/>
                 <input placeholder="Duração em Dias" type="number" value={inputDuracao} onChange={onChangeDuracao}/>
                 <div>
-                    <button onClick={goToAdminHomePage}>Voltar</button>
+                    <button onClick={() => goToAdminHomePage(navigate)}>Voltar</button>
                     <button onClick={createTrip}>Criar</button>
                 </div>
             </C.CustomForm>

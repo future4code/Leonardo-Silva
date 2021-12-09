@@ -4,8 +4,10 @@ import { StyledComponent } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import UrlBase from '../constants/constants';
 import * as C from './styles'
+import {goToHomePage, goToApplicationFormPage} from '../Rotas/Rotas'
 
 export const ListTripsPage = () => {
+    const navigate = useNavigate()
 
     useEffect (() => {
         getTrips()
@@ -14,15 +16,7 @@ export const ListTripsPage = () => {
     const [trips, setTrips] = useState([])
     
 
-    const navigate = useNavigate()
-
-    const goToHomePage = () => {
-        navigate("/")
-    }
-
-    const goToApplicationFormPage = () => {
-        navigate("/ApplicationFormPage")
-    }
+    
 
     const getTrips = async () => {
 
@@ -41,8 +35,8 @@ export const ListTripsPage = () => {
             <p>
                 ListTripsPage
             </p>
-            <button onClick={goToHomePage}>Voltar</button>
-            <button onClick={goToApplicationFormPage}>Inscrever-se</button>
+            <button onClick={() => goToHomePage(navigate)}>Voltar</button>
+            <button onClick={() => goToApplicationFormPage(navigate)}>Inscrever-se</button>
 
             <C.GridViagens>
                 {trips && trips.length > 0 ? trips.map((trip) => {

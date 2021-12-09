@@ -25,15 +25,15 @@ export default function App() {
           
           <Route exact path={"/ListTripsPage"} element={<ListTripsPage/>}/>
             
-          <Route exact path={"/ApplicationFormPage"} element={<ApplicationFormPage/>}/>
+          <Route exact path={"/ListTripsPage/ApplicationFormPage"} element={<ApplicationFormPage/>}/>
             
           <Route exact path={"/LoginPage"} element={<LoginPage/>}/>
             
           <Route exact path={"/AdminHomePage"} element={<AdminHomePage/>}/>
             
-          <Route exact path={"/TripDetailsPage"} element={<TripDetailsPage/>}/>
+          <Route exact path={"/AdminHomePage/TripDetailsPage"} element={<TripDetailsPage/>}/>
             
-          <Route exact path={"/CreateTripPage"} element={<CreateTripPage/>}/>
+          <Route exact path={"/AdminHomePage/CreateTripPage"} element={<CreateTripPage/>}/>
   
         </Routes>
       </BrowserRouter>

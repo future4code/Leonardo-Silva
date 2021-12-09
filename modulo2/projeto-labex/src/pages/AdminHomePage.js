@@ -4,25 +4,19 @@ import { StyledComponent } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import * as C from './styles'
 import UrlBase from '../constants/constants';
+import { ProtectedPage } from '../Hooks/ProtectedPages';
+import {goToHomePage, goToCreateTripPage, logOut} from '../Rotas/Rotas'
 
 
 export const AdminHomePage = () => {
-    useEffect (() => {
-        getTrips()
+    ProtectedPage()
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+        getTrips() 
     },[])
 
     const [trips, setTrips] = useState([])
-
-    const navigate = useNavigate()
-
-    const goToHomePage = () => {
-        navigate("/")
-    }
-
-    const goToCreateTripPage = () => {
-        navigate("/CreateTripPage")
-    }
-
 
     const getTrips = async () => {
 
@@ -57,9 +51,9 @@ export const AdminHomePage = () => {
             <p>
                 AdminHomePage
             </p>
-            <button onClick={goToHomePage}>Voltar</button>
-            <button onClick={goToCreateTripPage}>Criar Viagem</button>
-            <button>Logout</button>
+            <button onClick={() => goToHomePage(navigate)}>Voltar</button>
+            <button onClick={() => goToCreateTripPage(navigate)}>Criar Viagem</button>
+            <button onClick={() => logOut(navigate)}>Logout</button>
             <C.ViagensAdmin>
                 {trips && trips.length > 0 ? trips.map((trip) => {
                     return (

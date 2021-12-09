@@ -2,13 +2,10 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import { StyledComponent } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import {goToListTripsPage} from '../Rotas/Rotas'
 
 export const ApplicationFormPage = () => {
     const navigate = useNavigate()
-
-    const goToListTripsPage = () => {
-        navigate("/ListTripsPage")
-    }
 
 
     return(
@@ -16,7 +13,7 @@ export const ApplicationFormPage = () => {
         <p>
             ApplicationFormPage
         </p>
-        <button onClick={goToListTripsPage}>Voltar</button>
+        <button onClick={() => goToListTripsPage(navigate)}>Voltar</button>
     </div>
     )  
 
