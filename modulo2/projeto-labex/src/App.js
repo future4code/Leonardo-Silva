@@ -9,9 +9,8 @@ import { AdminHomePage } from './pages/AdminHomePage'
 import { TripDetailsPage } from './pages/TripDetailsPage'
 import { CreateTripPage } from './pages/CreateTripPage'
 import styled from 'styled-components';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
 import * as C from './pages/styles'
-
 
 export default function App() {
 
@@ -31,7 +30,7 @@ export default function App() {
             
           <Route exact path={"/AdminHomePage"} element={<AdminHomePage/>}/>
             
-          <Route exact path={"/AdminHomePage/TripDetailsPage"} element={<TripDetailsPage/>}/>
+          <Route exact path={"/AdminHomePage/TripDetailsPage/:id"} element={<TripDetailsPage/>}/>
             
           <Route exact path={"/AdminHomePage/CreateTripPage"} element={<CreateTripPage/>}/>
   

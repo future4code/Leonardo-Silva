@@ -58,11 +58,20 @@ width:200px;
 padding-bottom:10px;
 `
 
+export const TripName = styled.div`
+width:200px;
+
+:hover{
+  background-color:yellow;
+  cursor:pointer;
+}
+`
+
 
 
 
 // CREATE TRIP PAGE
-export const CustomForm = styled.div`
+export const CustomForm = styled.form`
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -70,4 +79,21 @@ export const CustomForm = styled.div`
     input{
         margin-bottom:5px;
     }
+`
+
+// TRIP DETAILS PAGE
+export const InfoTrip = styled.div`
+display:flex;
+flex-direction:row;
+align-items:center;
+height:40px;
+width:500px;
+justify-content:flex-start;
+padding-left:500px;
+
+
+p{
+  padding-right:10px;
+  color:black;
+}
 `

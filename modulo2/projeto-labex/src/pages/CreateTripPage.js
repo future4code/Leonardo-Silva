@@ -6,96 +6,57 @@ import UrlBase from '../constants/constants';
 import * as C from './styles'
 import {goToAdminHomePage} from '../Rotas/Rotas'
 import { ProtectedPage } from '../Hooks/ProtectedPages';
+import { planetas } from '../constants/constants';
 
 
 export const CreateTripPage = () => {
     const navigate = useNavigate()
     ProtectedPage()
-    
-    const planetas = ["Mercúrio","Vênus","Marte","Jupiter","Saturno","Urano","Netuno","Plutão"]
 
-    const [inputNome, setInputNome] = useState("")
-    const [inputPlaneta, setInputPlaneta] = useState("")
-    const [inputDescricao, setInputDescricao] = useState("")
-    const [inputDuracao, setInputDuracao] = useState(0)
-    const [inputData, setInputData] = useState("")
+    const [body, setBody] = useState("")
 
-    const onChangeNome = (e) => {
-        setInputNome(e.target.value)
-    }
-    const onChangePlaneta = (e) => {
-        setInputPlaneta(e.target.value)
-    }
-    const onChangeData = (e) => {
-        setInputData(e.target.value)
-    }
-    const onChangeDescricao = (e) => {
-        setInputDescricao(e.target.value)
-    }
-    const onChangeDuracao = (e) => {
-        setInputDuracao(e.target.value)
+    const onChange = (e) => {
+        setBody({...body, [e.target.name]: e.target.value})
     }
 
-    const createTrip = async () => {
-
-        const body = {
-            "name": inputNome,
-            "planet": inputPlaneta,
-            "date": inputData,
-            "description": inputDescricao,
-            "durationInDays": inputDuracao
-        }
-
+    const createTrip = async (event) => {
+        event.preventDefault()
+        const token  = window.localStorage.getItem("token")
 
         try {
             const res = await axios.post(`${UrlBase}/trips`, body, {
                 headers: {
-                    auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im93T2g5ZWo2bW50akZqNUNRMVB4IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1ODk1NjI5MDh9.aB4dNbTCkToXB7pdzEa-tuMa-QbRQDUd93eva4-cec0"
+                    auth: token
                 }
             })
-            console.log(res.data);
-            alert("deu certo")
-            setInputNome("")
-            setInputPlaneta("")
-            setInputDescricao("")
-            setInputDuracao(0)
-            setInputData("")
+
+            alert("Viagem criada com sucesso!")
+            goToAdminHomePage(navigate)
+
         } catch(erro){
             console.log("Erro: ", erro);
         }
-        
     }
 
     return(
         <div>
             <h2>Criar uma Viagem</h2>
-            <C.CustomForm>
-                <input placeholder="Nome" type="text" value={inputNome} onChange={onChangeNome}required/>
-                <select defaultValue={""} onChange={onChangePlaneta}>
-                    <option value=""  disabled>Escolha um planeta</option>
+            <C.CustomForm onSubmit={createTrip}>
+                <input name="name" placeholder="Nome" type="text" onChange={onChange} required />
+                <select name="planet" defaultValue={""} onChange={onChange}>
+                    <option value="" disabled>Escolha um planeta</option>
                     {planetas.map((planeta) => {
                         return <option value={planeta} key={planeta}>{planeta}</option>
                     })}
-                    {/* <option value="Mercúrio">Mercúrio</option>
-                    <option value="Vênus">Vênus</option>
-                    <option value="Marte">Marte</option>
-                    <option value="Jupiter">Jupiter</option>
-                    <option value="Saturno">Saturno</option>
-                    <option value="Urano">Urano</option>
-                    <option value="Netuno">Netuno</option>
-                    <option value="Plutão">Plutão</option>   */}
                 </select>
-                <input type="date" value={inputData} onChange={onChangeData}/>
-                <input placeholder="Descrição" type="text" value={inputDescricao} onChange={onChangeDescricao}/>
-                <input placeholder="Duração em Dias" type="number" value={inputDuracao} onChange={onChangeDuracao}/>
+                <input name="date" type="date" onChange={onChange} required/>
+                <input name="description" placeholder="Descrição" type="text" onChange={onChange} pattern={"^.{10,}"} title={"A descrição deve conter no mínimo 10 caracteres."} required/>
+                <input name ="durationInDays" placeholder="Duração em Dias" type="number" onChange={onChange} required/>
                 <div>
                     <button onClick={() => goToAdminHomePage(navigate)}>Voltar</button>
-                    <button onClick={createTrip}>Criar</button>
+                    <button>Criar</button>
                 </div>
             </C.CustomForm>
         </div>
     )  
-
-
-    
 }

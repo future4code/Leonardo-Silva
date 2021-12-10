@@ -29,8 +29,8 @@ export const goToApplicationFormPage = (navigate) => {
     navigate("/ListTripsPage/ApplicationFormPage")
 }
 
-export const goToTripDetailsPage = (navigate) => {
-    navigate("/AdminHomePage/TripDetailsPage")
+export const goToTripDetailsPage = (navigate, id) => {
+    navigate(`/AdminHomePage/TripDetailsPage/${id}`)
 }
 
 
