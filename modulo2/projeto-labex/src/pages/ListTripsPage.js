@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import * as C from './styles'
 import {goToHomePage, goToApplicationFormPage} from '../Rotas/Rotas'
 import AllTrips from '../services/getTrips';
+import ViagemCard from '../components/ViagemCard';
 
 export const ListTripsPage = () => {
     const navigate = useNavigate()
@@ -10,22 +11,13 @@ export const ListTripsPage = () => {
     
     return(
         <div>
-            <p>
-                ListTripsPage
-            </p>
-            <button onClick={() => goToHomePage(navigate)}>Voltar</button>
-            <button onClick={() => goToApplicationFormPage(navigate)}>Inscrever-se</button>
+            <C.StyledButton onClick={() => goToHomePage(navigate)}>Voltar</C.StyledButton>
+            <C.StyledButton onClick={() => goToApplicationFormPage(navigate)}>Inscrever-se</C.StyledButton>
 
             <C.GridViagens>
                 {trips && trips.length > 0 ? trips.map((trip) => {
                     return (
-                        <C.Viagens key={trip.id}>
-                            {trip.name}<br/>
-                            {trip.description}<br/>
-                            {trip.planet}<br/>
-                            {trip.date}<br/>
-                            {trip.durationInDays}<br/>
-                        </C.Viagens>
+                        <ViagemCard trip={trip}/>
                     )
                 }) : <p>Caregando...</p>}
             </C.GridViagens>

@@ -11,11 +11,13 @@ import { CreateTripPage } from './pages/CreateTripPage'
 import styled from 'styled-components';
 import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
 import * as C from './pages/styles'
+import { GlobalStyle } from './pages/styles';
 
 export default function App() {
 
   return (
     <C.Main>
+      <GlobalStyle/>
       <h1>LabeX</h1>
       <BrowserRouter>
         <Routes>
