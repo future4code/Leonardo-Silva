@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import UrlBase from '../constants/constants';
 import {goToHomePage, goToAdminHomePage} from '../Rotas/Rotas'
 import { login } from '../services/services';
+import * as C from './styles'
+import { TextField } from '@mui/material';
 
 export const LoginPage = () => {
     const navigate = useNavigate()
@@ -27,16 +29,18 @@ export const LoginPage = () => {
     }
 
     return(
-        <div>
-            <p>
-                LoginPage
-            </p>
-            <form  onSubmit={onClickLogin}>
-                <input name="email" placeholder="Email" type="email" onChange={onChange} pattern={"^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$"} required/>
-                <input name="password" placeholder="Senha" type="password" onChange={onChange} required/><br />
-                <button onClick={() => goToHomePage(navigate)}>Voltar</button>
-                <button>Entrar</button>
-            </form>  
-        </div>
+        <C.Column>
+            <C.StyledButton onClick={() => goToHomePage(navigate)}>Voltar</C.StyledButton>
+            <form onSubmit={onClickLogin}>
+
+                <C.Row3>
+                    <TextField id="standard-basic" label="Email" variant="standard" name="email" type="email" onChange={onChange} pattern={"^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$"} required />
+                    <TextField id="standard-basic" label="Senha" variant="standard" name="password" type="password" onChange={onChange} required />
+
+                    <C.StyledButton>Entrar</C.StyledButton>
+                </C.Row3>
+
+            </form>
+        </C.Column>
     )      
 }

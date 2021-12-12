@@ -5,6 +5,14 @@ import {goToListTripsPage} from '../Rotas/Rotas'
 import UrlBase from '../constants/constants';
 import * as C from './styles'
 import { countries } from '../constants/constants';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import MenuItem from '@mui/material/MenuItem';
+import {age} from '../constants/constants';
+import { TextField } from '@mui/material';
+import { TamanhoInput } from './styles';
+
 
 export const ApplicationFormPage = () => {
     const navigate = useNavigate()
@@ -44,40 +52,59 @@ export const ApplicationFormPage = () => {
             const res = await axios.post(`${UrlBase}/trips/${id}/apply`, body)
 
             alert("Applicação registrada com sucesso")
-            setBody({ name: "", age: 0, applicationText: "", profession: "", country: "" })
+            setBody({ name: "", age: Number(""), applicationText: "", profession: "", country: "" })
+            setId("")
 
         } catch (erro) {
             alert("Ocorreu um erro, tente novamente")
             console.log("Erro: ", erro)
         }
     }
-
+    console.log(age)
     return(
-        <div>
-            <p>
-                ApplicationFormPage
-            </p>
+        <C.Column>
+            <C.StyledButton onClick={() => goToListTripsPage(navigate)}>Voltar</C.StyledButton>
             <C.CustomForm onSubmit={onSubmit}>
-                <select name="" value={id} defaultValue={""} onChange={onChangeId} required>
-                    <option value="" disabled>Escolha uma Viagem</option>
-                    {trips.map((trip) => {
-                        return <option key={trip.id} value={trip.id}>{trip.name}</option>
-                    })}
-                </select>
-                <input name="name" value={body["name"]} placeholder="Nome" type="text" onChange={onChange} required />
-                <input name="age" value={body["age"]} placeholder="Idade" type="Number" min={16} onChange={onChange} required />
-                <input name="applicationText" value={body["applicationText"]} placeholder="Texto de candidatura" type="text" onChange={onChange} required />
-                <input name="profession" value={body["profession"]} placeholder="Profissão" type="text" onChange={onChange} required />
-                <select name="country" value={body["country"]} defaultValue={""} onChange={onChange} required>
-                    <option value="" disabled>País de origem</option>
-                    {countries.map((country) => {
-                        return <option key={country}>{country}</option>
-                    })}
-                </select>
-                <button onClick={() => goToListTripsPage(navigate)}>Voltar</button>
-                <button onClick={console.log(body)}>Enviar</button>
+                <C.TamanhoInput>
+
+                    <FormControl fullWidth variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                        <InputLabel id="demo-simple-select-standard-label">Viagem</InputLabel>
+                        <Select name="" value={id} onChange={onChangeId} required>
+                            <option value="" disabled>Escolha uma Viagem</option>
+                            {trips.map((trip) => {
+                                return <MenuItem key={trip.id} value={trip.id}>{trip.name}</MenuItem >
+                            })}
+                        </Select>
+                    </FormControl>
+
+                    <TextField fullWidth id="standard-basic" label="Nome" variant="standard" name="name" value={body["name"]} type="text" onChange={onChange} required />
+
+                    <FormControl fullWidth variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                        <InputLabel id="demo-simple-select-standard-label">Idade</InputLabel>
+                        <Select name="age" label="Idade" value={body["age"]} onChange={onChange} required >
+                            {age.map((age) => {
+                                return <MenuItem key={age} value={age}>{age}</MenuItem>
+                            })}
+                        </Select>
+                    </FormControl>
+                    <TextField fullWidth id="standard-basic" name="applicationText" variant="standard" value={body["applicationText"]} label="Texto de candidatura" type="text" onChange={onChange} required />
+                    <TextField fullWidth id="standard-basic" name="profession" variant="standard" value={body["profession"]} label="Profissão" type="text" onChange={onChange} required />
+                    <FormControl fullWidth variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                        <InputLabel id="demo-simple-select-standard-label">País de origem</InputLabel>
+                        <Select name="country" value={body["country"]} defaultValue={""} onChange={onChange} required>
+                            <option value="" disabled>País de origem</option>
+                            {countries.map((country) => {
+                                return <MenuItem key={country} value={country}>{country}</MenuItem>
+                            })}
+                        </Select>
+                    </FormControl>
+                </C.TamanhoInput>
+                <C.Row>
+                    <C.StyledButton onClick={console.log(body)}>Enviar</C.StyledButton>
+                </C.Row>
+
             </C.CustomForm>
-        </div>
+        </C.Column>
     )  
 
     

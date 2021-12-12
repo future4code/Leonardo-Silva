@@ -11,8 +11,10 @@ export const ListTripsPage = () => {
     
     return(
         <div>
-            <C.StyledButton onClick={() => goToHomePage(navigate)}>Voltar</C.StyledButton>
-            <C.StyledButton onClick={() => goToApplicationFormPage(navigate)}>Inscrever-se</C.StyledButton>
+            <C.Row>
+                <C.StyledButton onClick={() => goToHomePage(navigate)}>Voltar</C.StyledButton>
+                <C.StyledButton onClick={() => goToApplicationFormPage(navigate)}>Inscrever-se</C.StyledButton>
+            </C.Row>
 
             <C.GridViagens>
                 {trips && trips.length > 0 ? trips.map((trip) => {

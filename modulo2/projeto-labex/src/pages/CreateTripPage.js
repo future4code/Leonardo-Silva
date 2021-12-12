@@ -7,6 +7,13 @@ import * as C from './styles'
 import {goToAdminHomePage} from '../Rotas/Rotas'
 import { ProtectedPage } from '../Hooks/ProtectedPages';
 import { planetas } from '../constants/constants';
+import { TextField } from '@mui/material';
+import { TamanhoInput } from './styles';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import MenuItem from '@mui/material/MenuItem';
+
 
 
 export const CreateTripPage = () => {
@@ -39,24 +46,31 @@ export const CreateTripPage = () => {
     }
 
     return(
-        <div>
+        <C.Column>
+            <C.StyledButton onClick={() => goToAdminHomePage(navigate)}>Voltar</C.StyledButton>
             <h2>Criar uma Viagem</h2>
             <C.CustomForm onSubmit={createTrip}>
-                <input name="name" placeholder="Nome" type="text" onChange={onChange} required />
-                <select name="planet" defaultValue={""} onChange={onChange}>
-                    <option value="" disabled>Escolha um planeta</option>
-                    {planetas.map((planeta) => {
-                        return <option value={planeta} key={planeta}>{planeta}</option>
-                    })}
-                </select>
-                <input name="date" type="date" onChange={onChange} required/>
-                <input name="description" placeholder="Descrição" type="text" onChange={onChange} pattern={"^.{10,}"} title={"A descrição deve conter no mínimo 10 caracteres."} required/>
-                <input name ="durationInDays" placeholder="Duração em Dias" type="number" onChange={onChange} required/>
-                <div>
-                    <button onClick={() => goToAdminHomePage(navigate)}>Voltar</button>
-                    <button>Criar</button>
-                </div>
+                <C.TamanhoInput2>
+                    <TextField fullWidth id="standard-basic" label="Nome" variant="standard" name="name" value={body["name"]} type="text" onChange={onChange} required />
+                    <FormControl fullWidth variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                        <InputLabel id="demo-simple-select-standard-label">Planeta</InputLabel>
+                        <Select name="planet" onChange={onChange} required>
+                            <option value="" disabled>Escolha um planeta</option>
+                            {planetas.map((planeta) => {
+                                return <MenuItem key={planeta} value={planeta}>{planeta}</MenuItem >
+                            })}
+                        </Select>
+                    </FormControl>
+
+                    <C.Date name="date" type="date" onChange={onChange} required />
+                    <TextField fullWidth id="standard-basic" variant="standard" name="description" label="Descrição" type="text" onChange={onChange} pattern={"^.{10,}"} title={"A descrição deve conter no mínimo 10 caracteres."} required />
+                    <TextField fullWidth id="standard-basic" variant="standard" name="durationInDays" label="Duração em Dias" type="number" onChange={onChange} required/>
+                    
+                </C.TamanhoInput2>
+                    <C.Row>
+                        <C.StyledButton>Criar</C.StyledButton>
+                    </C.Row>
             </C.CustomForm>
-        </div>
+        </C.Column>
     )  
 }

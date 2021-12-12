@@ -5,6 +5,18 @@ import { ProtectedPage } from '../Hooks/ProtectedPages';
 import {goToHomePage, goToCreateTripPage, logOut, goToTripDetailsPage} from '../Rotas/Rotas'
 import { deleteTrip } from '../services/services';
 import AllTrips from '../services/getTrips';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+
+const style = {
+    width: '100%',
+    maxWidth: 360,
+    bgcolor: 'background.paper',
+};
 
 export const AdminHomePage = () => {
     ProtectedPage()
@@ -17,20 +29,24 @@ export const AdminHomePage = () => {
     const [trips, getTrips] = AllTrips()
 
     return (
-        <div>
-            <p>
-                AdminHomePage
-            </p>
-            <button onClick={() => goToHomePage(navigate)}>Voltar</button>
-            <button onClick={() => goToCreateTripPage(navigate)}>Criar Viagem</button>
-            <button onClick={() => logOut(navigate)}>Logout</button>
-            <C.ViagensAdmin>
+        <C.Column>
+            <C.Row>
+                <C.StyledButton onClick={() => goToHomePage(navigate)}>Voltar</C.StyledButton>
+                <C.StyledButton onClick={() => goToCreateTripPage(navigate)}>Criar Viagem</C.StyledButton>
+                <C.StyledButton onClick={() => logOut(navigate)}>Logout</C.StyledButton>
+            </C.Row>
+            <C.GridViagens2>
                 {trips && trips.length > 0 ? trips.map((trip) => {
                     return (
-                        <C.RowViagens key={trip.id}> <C.TripName onClick={() => goToTripDetailsPage(navigate,trip.id)}>{trip.name}</C.TripName> <button onClick={() => deleteTrip(trip.id, getTrips)}>x</button></C.RowViagens>
+                        <C.Row2 >
+
+                            <a onClick={() => goToTripDetailsPage(navigate, trip.id)}>{trip.name}</a>
+                            <IconButton edge="end" aria-label="delete" title="delete" onClick={() => deleteTrip(trip.id, getTrips)}> <DeleteIcon /></IconButton>
+                        </C.Row2>
                     )
                 }) : <p>Caregando...</p>}
-            </C.ViagensAdmin>
-        </div>
+
+            </C.GridViagens2>
+        </C.Column>
     )
 }
