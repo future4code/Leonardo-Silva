@@ -34,7 +34,7 @@ const RecipesListPage = () => {
             onClick={() => goToAddRecipes(navigate)}
             >
                 <Add/>
-            </AddRecipeButton> : <Loading/>
+            </AddRecipeButton>
         </RecipeListContainer>
     )
 }
