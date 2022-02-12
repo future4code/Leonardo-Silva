@@ -88,8 +88,20 @@ const createPurchase = async (
 
 app.get("/users", async (req: Request, res: Response): Promise<void> => {
    try {
-     let result = await connection.raw(`SELECT id, name, price, image_url FROM labecommerce_users ORDER BY id;`)
-     const newResult = {users: result[0]}
+     let result = await connection.raw(`SELECT id, name, email FROM labecommerce_users ORDER BY id;`)
+     let compras = await connection.raw(`SELECT user_id, name, quantity, total_price FROM labecommerce_products JOIN labecommerce_purchases WHERE id = product_id;`)
+     let purchases = []
+     let newArray = []
+     for(let user of result[0]){
+       for(let compra of compras[0]){
+         if(user.id === compra.user_id){
+            purchases.push(compra)
+         }
+       }
+       newArray.push({...user, purchases: purchases})
+       purchases = []
+     }
+     const newResult = {users: newArray}
      if(result[0][0] === undefined){
        throw new Error("Nenhum usuário encontrado")
      }
@@ -121,6 +133,22 @@ app.get("/users", async (req: Request, res: Response): Promise<void> => {
 app.get("/products", async (req: Request, res: Response): Promise<void> => {
    try {
      let result = await connection.raw(`SELECT id, name, price FROM labecommerce_products ORDER BY id;`)
+     const search: any = req.query.search
+     const order: any = req.query.order
+
+    if (search) {
+      result = await connection.raw(`
+      SELECT id, name, price FROM labecommerce_products
+      WHERE name like '%${search}%'
+      `)
+    } 
+    if (order) {
+      result = await connection.raw(`
+      SELECT id, name, price FROM labecommerce_products
+      ORDER BY name ${order};
+      `)
+    } 
+
      const newResult = {products: result[0]}
      if(result[0][0] === undefined){
        throw new Error("Nenhum produto encontrado")
