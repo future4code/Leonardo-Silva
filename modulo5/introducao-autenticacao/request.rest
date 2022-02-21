@@ -1,0 +1,13 @@
+POST http://localhost:3003/user/signup
+Content-type: application/json
+
+{
+	"email": "claudio@gmail.com",
+	"password": "987654321"
+}
+
+###
+
+GET http://localhost:3003/user/profile
+Content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA5YzE3ZTg2LTE5NzUtNDZjYS04MTU5LTQ4NWVhOTQyNTk2ZSIsImlhdCI6MTY0NTQ3MjY0NCwiZXhwIjoxNjQ1NDcyNzA0fQ.8ZQ6wugybWMsRS1g1-LmrZYdthaIH82QNsNRkGv70Q8
