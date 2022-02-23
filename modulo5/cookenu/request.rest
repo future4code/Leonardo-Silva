@@ -1,0 +1,44 @@
+### Cadastro de usuário
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+    "name":"Igor Chiessi",
+    "email":"igor@gmail.com",
+    "password":"chiessi123",
+    "role": "NORMAL"
+}
+
+### Login
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email":"leozbroca@gmail.com",
+    "password":"wyrmheroblade"
+}
+
+### Pegar informações do próprio perfil
+GET http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYxODE2NGE1LTAwMzgtNDFkMC05MzAzLTQ0NzQ0YmRiYjA1ZCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU2MzQ1MDMsImV4cCI6MTY0NTcyMDkwM30.HVbsgnhbcD8ex71yWlOOsfw3aDyLB80_AF5-7RpQx0I
+
+### Pegar informações do perfil de outro usuário (Somente admins)
+GET http://localhost:3003/user/f0be1d2e-37d7-461b-83b8-1728454ab968
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwYmUxZDJlLTM3ZDctNDYxYi04M2I4LTE3Mjg0NTRhYjk2OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NTYzNzEwOCwiZXhwIjoxNjQ1NzIzNTA4fQ.f76yikX34WnJaHSzr_YgVp0M2qqV7r_2EuEUaUZt9bs
+
+### Criando receita
+POST http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMtNDk2ZS1hNTJjLTQwZDY4NzM1MWNhOSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU2MzQ4MTYsImV4cCI6MTY0NTcyMTIxNn0.73a1EEP6nEvQyGaB5YrqV9jeBBeeXPzW9V7Ch4Fgb80
+
+{
+    "title": "Strogonoff de Carne",
+    "description": "Comece refogando a cebola no azeite e na manteiga (azeite evita que a manteiga queime). O ideal é não deixar a cebola dourar, ela precisa murchar e ficar quase derretendo, então mantenha em fogo baixo. Junte a carne e doure. É comum soltar um pouco de líquido, inclusive ele ajudará a formar o molho. Tempere com sal e pimenta-do-reino a gosto. Na sequência adicione o molho inglês, a mostarda, o ketchup e o tomate. Misture bem e acrescente os cogumelos e depois o creme de leite. Acerte o sal se achar necessário."
+}
+
+### Pegar informações da receita
+GET http://localhost:3003/recipe/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwYmUxZDJlLTM3ZDctNDYxYi04M2I4LTE3Mjg0NTRhYjk2OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NTYzNzEwOCwiZXhwIjoxNjQ1NzIzNTA4fQ.f76yikX34WnJaHSzr_YgVp0M2qqV7r_2EuEUaUZt9bs
