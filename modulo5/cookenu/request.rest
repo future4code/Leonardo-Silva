@@ -3,10 +3,10 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name":"teste",
-    "email":"teste@gmail.com",
-    "password":"teste123",
-    "role": "NORMAL"
+    "name":"",
+    "email":"",
+    "password":"",
+    "role": ""
 }
 
 ### Login
@@ -21,32 +21,32 @@ Content-Type: application/json
 ### Pegar informações do próprio perfil
 GET http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY3NzBkMTNmLWNiMGYtNDRlNy1hYWM0LWUyMzE0ZDVhZWRkMiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU3Mjg0MzYsImV4cCI6MTY0NTgxNDgzNn0.tDOfH2w3je5CNdW-Rrb7jeYtRygaKtEgyw3SLOevIqs
+Authorization: 
 
 ### Pegar informações do perfil de outro usuário (Somente admins)
-GET http://localhost:3003/user/f0686685-6923-496e-a52c-40d687351ca9
+GET http://localhost:3003/user/:id
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwYmUxZDJlLTM3ZDctNDYxYi04M2I4LTE3Mjg0NTRhYjk2OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NTcxNzI3MywiZXhwIjoxNjQ1ODAzNjczfQ.P-GmkNKiD-ThMss-TuN-RqPlwIIKanaKCV7CaMCXNF8
+Authorization: 
 
 ### Criando receita
 POST http://localhost:3003/recipe
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMtNDk2ZS1hNTJjLTQwZDY4NzM1MWNhOSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU3MjM2MjEsImV4cCI6MTY0NTgxMDAyMX0.22o5LQrZ47xrExFavydxFX2W67IlYkkFK2oH0lzSjr0
+Authorization: 
 
 {
-    "title": "Strogonoff de teste",
-    "description": "BLAblabla testando apenas."
+    "title": "",
+    "description": ""
 }
 
 ### Pegar informações da receita
-GET http://localhost:3003/recipe/4
+GET http://localhost:3003/recipe/:id
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMtNDk2ZS1hNTJjLTQwZDY4NzM1MWNhOSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU3MjM2MjEsImV4cCI6MTY0NTgxMDAyMX0.22o5LQrZ47xrExFavydxFX2W67IlYkkFK2oH0lzSjr0
+Authorization: 
 
 ### Seguir usuário
 POST http://localhost:3003/user/follow
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMtNDk2ZS1hNTJjLTQwZDY4NzM1MWNhOSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU3MjM2MjEsImV4cCI6MTY0NTgxMDAyMX0.22o5LQrZ47xrExFavydxFX2W67IlYkkFK2oH0lzSjr0
+Authorization: 
 
 {
     "userToFollowId":"f0be1d2e-37d7-461b-83b8-1728454ab968"
@@ -55,21 +55,21 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMt
 ### Deixar de seguir usuário
 DELETE http://localhost:3003/user/unfollow
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwYmUxZDJlLTM3ZDctNDYxYi04M2I4LTE3Mjg0NTRhYjk2OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NTcxNzI3MywiZXhwIjoxNjQ1ODAzNjczfQ.P-GmkNKiD-ThMss-TuN-RqPlwIIKanaKCV7CaMCXNF8
+Authorization: 
 
 {
-    "userToUnfollowId":"f0686685-6923-496e-a52c-40d687351ca9"
+    "userToUnfollowId":""
 }
 
 ### Pegar feed de receitas 
 GET http://localhost:3003/user/feed
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMtNDk2ZS1hNTJjLTQwZDY4NzM1MWNhOSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU3MjM2MjEsImV4cCI6MTY0NTgxMDAyMX0.22o5LQrZ47xrExFavydxFX2W67IlYkkFK2oH0lzSjr0
+Authorization: 
 
 ### Editar receita
 PUT http://localhost:3003/recipe/:id/edit
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMtNDk2ZS1hNTJjLTQwZDY4NzM1MWNhOSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU3MjM2MjEsImV4cCI6MTY0NTgxMDAyMX0.22o5LQrZ47xrExFavydxFX2W67IlYkkFK2oH0lzSjr0
+Authorization: 
 
 {
     "title":"",
@@ -79,10 +79,17 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMt
 ### Deletar receita 
 DELETE http://localhost:3003/recipe/:id/delete
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwYmUxZDJlLTM3ZDctNDYxYi04M2I4LTE3Mjg0NTRhYjk2OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NTcyNzc1MCwiZXhwIjoxNjQ1ODE0MTUwfQ.r8x62ZwvzD21_5GzG7ukKZ5BYjeX7z171s4dSnYVt4w
+Authorization: 
 
 ### Deletar usuário 
 DELETE http://localhost:3003/user/:id/delete
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwYmUxZDJlLTM3ZDctNDYxYi04M2I4LTE3Mjg0NTRhYjk2OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NTcyODQ4MywiZXhwIjoxNjQ1ODE0ODgzfQ.gx-uQksokYjERR8cIaGg5MzCGufOBwbo3RSGGibiV2o
+Authorization: 
 
+### Esqueceu sua senha
+PUT http://localhost:3003/newPassword
+Content-Type: application/json
+
+{
+    "email": ""
+}

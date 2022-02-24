@@ -11,6 +11,7 @@ import getFeed from "./endpoints/getFeed";
 import editRecipe from "./endpoints/editRecipe";
 import deleteRecipe from "./endpoints/deleteRecipe";
 import deleteUser from "./endpoints/deleteUser";
+import { forgotEmail } from "./endpoints/forgotEmail";
 
 app.post("/signup", createUser)
 app.post("/login", login)
@@ -19,7 +20,7 @@ app.get("/user/profile", getProfile)
 app.post("/recipe", createRecipe)
 app.post("/user/follow", followUser)
 app.delete("/user/unfollow", unfollowUser)
-
+app.put("/newPassword", forgotEmail)
 app.get("/user/:id", getOtherProfile)
 app.get("/recipe/:id", getRecipe)
 app.put("/recipe/:id/edit", editRecipe)
