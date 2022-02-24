@@ -13,12 +13,12 @@ export default async function login(
 
         if (!email) {
             res.statusCode = 422
-            throw new Error("Preencha o campo 'email'")
+            throw new Error("Input missing:'email'")
         }
 
         if (!password) {
             res.statusCode = 422
-            throw new Error("Preencha o campo 'password'")
+            throw new Error("Input missing: 'password'")
         }
 
         // select * from to_do_list_users where email = email

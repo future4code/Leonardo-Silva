@@ -22,3 +22,8 @@ export enum USER_ROLES {
     creation_date: string
     creator_id: string
  }
+
+ export interface follow {
+   follower: string
+   following: string
+}

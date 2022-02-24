@@ -3,9 +3,9 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name":"Igor Chiessi",
-    "email":"igor@gmail.com",
-    "password":"chiessi123",
+    "name":"teste",
+    "email":"teste@gmail.com",
+    "password":"teste123",
     "role": "NORMAL"
 }
 
@@ -21,24 +21,68 @@ Content-Type: application/json
 ### Pegar informações do próprio perfil
 GET http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYxODE2NGE1LTAwMzgtNDFkMC05MzAzLTQ0NzQ0YmRiYjA1ZCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU2MzQ1MDMsImV4cCI6MTY0NTcyMDkwM30.HVbsgnhbcD8ex71yWlOOsfw3aDyLB80_AF5-7RpQx0I
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY3NzBkMTNmLWNiMGYtNDRlNy1hYWM0LWUyMzE0ZDVhZWRkMiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU3Mjg0MzYsImV4cCI6MTY0NTgxNDgzNn0.tDOfH2w3je5CNdW-Rrb7jeYtRygaKtEgyw3SLOevIqs
 
 ### Pegar informações do perfil de outro usuário (Somente admins)
-GET http://localhost:3003/user/f0be1d2e-37d7-461b-83b8-1728454ab968
+GET http://localhost:3003/user/f0686685-6923-496e-a52c-40d687351ca9
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwYmUxZDJlLTM3ZDctNDYxYi04M2I4LTE3Mjg0NTRhYjk2OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NTYzNzEwOCwiZXhwIjoxNjQ1NzIzNTA4fQ.f76yikX34WnJaHSzr_YgVp0M2qqV7r_2EuEUaUZt9bs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwYmUxZDJlLTM3ZDctNDYxYi04M2I4LTE3Mjg0NTRhYjk2OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NTcxNzI3MywiZXhwIjoxNjQ1ODAzNjczfQ.P-GmkNKiD-ThMss-TuN-RqPlwIIKanaKCV7CaMCXNF8
 
 ### Criando receita
 POST http://localhost:3003/recipe
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMtNDk2ZS1hNTJjLTQwZDY4NzM1MWNhOSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU2MzQ4MTYsImV4cCI6MTY0NTcyMTIxNn0.73a1EEP6nEvQyGaB5YrqV9jeBBeeXPzW9V7Ch4Fgb80
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMtNDk2ZS1hNTJjLTQwZDY4NzM1MWNhOSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU3MjM2MjEsImV4cCI6MTY0NTgxMDAyMX0.22o5LQrZ47xrExFavydxFX2W67IlYkkFK2oH0lzSjr0
 
 {
-    "title": "Strogonoff de Carne",
-    "description": "Comece refogando a cebola no azeite e na manteiga (azeite evita que a manteiga queime). O ideal é não deixar a cebola dourar, ela precisa murchar e ficar quase derretendo, então mantenha em fogo baixo. Junte a carne e doure. É comum soltar um pouco de líquido, inclusive ele ajudará a formar o molho. Tempere com sal e pimenta-do-reino a gosto. Na sequência adicione o molho inglês, a mostarda, o ketchup e o tomate. Misture bem e acrescente os cogumelos e depois o creme de leite. Acerte o sal se achar necessário."
+    "title": "Strogonoff de teste",
+    "description": "BLAblabla testando apenas."
 }
 
 ### Pegar informações da receita
-GET http://localhost:3003/recipe/1
+GET http://localhost:3003/recipe/4
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwYmUxZDJlLTM3ZDctNDYxYi04M2I4LTE3Mjg0NTRhYjk2OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NTYzNzEwOCwiZXhwIjoxNjQ1NzIzNTA4fQ.f76yikX34WnJaHSzr_YgVp0M2qqV7r_2EuEUaUZt9bs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMtNDk2ZS1hNTJjLTQwZDY4NzM1MWNhOSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU3MjM2MjEsImV4cCI6MTY0NTgxMDAyMX0.22o5LQrZ47xrExFavydxFX2W67IlYkkFK2oH0lzSjr0
+
+### Seguir usuário
+POST http://localhost:3003/user/follow
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMtNDk2ZS1hNTJjLTQwZDY4NzM1MWNhOSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU3MjM2MjEsImV4cCI6MTY0NTgxMDAyMX0.22o5LQrZ47xrExFavydxFX2W67IlYkkFK2oH0lzSjr0
+
+{
+    "userToFollowId":"f0be1d2e-37d7-461b-83b8-1728454ab968"
+}
+
+### Deixar de seguir usuário
+DELETE http://localhost:3003/user/unfollow
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwYmUxZDJlLTM3ZDctNDYxYi04M2I4LTE3Mjg0NTRhYjk2OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NTcxNzI3MywiZXhwIjoxNjQ1ODAzNjczfQ.P-GmkNKiD-ThMss-TuN-RqPlwIIKanaKCV7CaMCXNF8
+
+{
+    "userToUnfollowId":"f0686685-6923-496e-a52c-40d687351ca9"
+}
+
+### Pegar feed de receitas 
+GET http://localhost:3003/user/feed
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMtNDk2ZS1hNTJjLTQwZDY4NzM1MWNhOSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU3MjM2MjEsImV4cCI6MTY0NTgxMDAyMX0.22o5LQrZ47xrExFavydxFX2W67IlYkkFK2oH0lzSjr0
+
+### Editar receita
+PUT http://localhost:3003/recipe/:id/edit
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNjg2Njg1LTY5MjMtNDk2ZS1hNTJjLTQwZDY4NzM1MWNhOSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU3MjM2MjEsImV4cCI6MTY0NTgxMDAyMX0.22o5LQrZ47xrExFavydxFX2W67IlYkkFK2oH0lzSjr0
+
+{
+    "title":"",
+    "description": ""
+}
+
+### Deletar receita 
+DELETE http://localhost:3003/recipe/:id/delete
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwYmUxZDJlLTM3ZDctNDYxYi04M2I4LTE3Mjg0NTRhYjk2OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NTcyNzc1MCwiZXhwIjoxNjQ1ODE0MTUwfQ.r8x62ZwvzD21_5GzG7ukKZ5BYjeX7z171s4dSnYVt4w
+
+### Deletar usuário 
+DELETE http://localhost:3003/user/:id/delete
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwYmUxZDJlLTM3ZDctNDYxYi04M2I4LTE3Mjg0NTRhYjk2OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NTcyODQ4MywiZXhwIjoxNjQ1ODE0ODgzfQ.gx-uQksokYjERR8cIaGg5MzCGufOBwbo3RSGGibiV2o
+

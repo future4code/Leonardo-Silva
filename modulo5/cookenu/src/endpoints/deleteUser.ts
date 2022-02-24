@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { connection } from "../data/connection";
 import authenticator from "../services/authenticator";
 
-export default async function getOtherProfile(
+export default async function deleteUser(
    req: Request,
    res: Response
 ): Promise<void> {
@@ -11,34 +11,30 @@ export default async function getOtherProfile(
     if(!token){
         res.statusCode = 401
         res.statusMessage = "token invalido ou nao passado no headers"
-        throw new Error("token invalido ou nao passado no headers")
+        throw new Error("Invalid Token")
     }
 
     const authenticationData = authenticator.getTokenData(token);
-    const user_id = req.params.id
-    if (authenticationData.role !== "ADMIN") {
-      throw new Error("Only a admin user can access this funcionality");
+
+    if(authenticationData.role !== "ADMIN"){
+        throw new Error("Only a admin user can access this funcionality");
     }
 
-    const user = await getUserById(user_id);
+    const user_id = req.params.id
+    
+    const [user] = await connection('cookenu_users').where({ id: user_id })
 
-    res.status(200).send({
-      id: user.id,
-      name: user.name,
-      email: user.email
-    });
+    if(!user){
+        throw new Error("User not found")
+    }
+
+    await connection('cookenu_users').where({ id: user_id }).del()
+
+    res.status(200).send({ message: "User deleted successfully!"});
     
    } catch (error:any) {
-    console.log("problema aqui")
         res.status(400).send({
         message: error.message,
       });
    }
-}
-
-async function getUserById(id:string): Promise<any>{
-    const [user] = await connection('cookenu_users')
-    .where({ id })
-
-    return user;
 }
