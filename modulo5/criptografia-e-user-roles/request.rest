@@ -1,0 +1,33 @@
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+    "name":"Gisele",
+    "nickname":"gi",
+    "email":"gisele@gmail.com",
+    "password":"chocolate",
+    "role": "NORMAL"
+}
+
+### eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRiOTlhNDEyLTVlMmEtNGY2YS04ZjI0LThiYTBhYWI1ZTIwNCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU1NTQwNzQsImV4cCI6MTY0NTY0MDQ3NH0.YvXmVWt1itUt0FcSHUGYRGPSwuxNy45vGSRDjqbqvaE
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email":"gisele@gmail.com",
+    "password":"chocolate"
+}
+
+###
+PUT http://localhost:3003/user/edit
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1NmM0NTY5LTQ2ZWYtNGFlYi04YjUzLTJlYjhmOTZjNjg1OSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NTU1MzM5MSwiZXhwIjoxNjQ1NjM5NzkxfQ.bFXM4UY9GGAowsHBTXvkfPACs1pLZG0F0bxmx1-4cfg
+
+{
+    "name":"Leonardo",
+    "nickname":"leozinho"
+}
+###
+GET http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRiOTlhNDEyLTVlMmEtNGY2YS04ZjI0LThiYTBhYWI1ZTIwNCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NDU1NTQwNzQsImV4cCI6MTY0NTY0MDQ3NH0.YvXmVWt1itUt0FcSHUGYRGPSwuxNy45vGSRDjqbqvaE
