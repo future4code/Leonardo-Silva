@@ -37,7 +37,7 @@ export const Crew = styled.div`
 export const TitleCrew = styled.p`
 font-size: 32px;
 margin:0;
-margin-top:200px;
+margin-top:250px;
 align-self: flex-start;
 margin-left: 13%;
 `
@@ -79,9 +79,17 @@ border-radius:10px;
 export const RecommendedList = styled.div`
 display:flex;
 flex-direction: row;
+justify-content: center;
+align-items: center;
 width:75%;
 max-width: 1500px;
 margin-bottom:100px;
+`
+
+export const Precommended = styled.p`
+  font-size:28px;
+  margin-top:50px;
+  margin-bottom:50px;
 `
 
 export const Movie = styled.div`
@@ -121,4 +129,10 @@ font-size: 20px;
 height:10%;
 margin:0;
 color: #646464;
+`
+
+export const Ptrailer = styled.p`
+font-size:28px;
+margin-top:50px;
+margin-bottom:50px;
 `

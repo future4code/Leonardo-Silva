@@ -8,6 +8,8 @@ import GlobalStateContext from "../../Context/GlobalContextState";
 import { FixDate } from '../../Services/FixDate';
 import Paginacao from '../../Components/Paginacao/Paginacao';
 import { goToMovieDetail } from '../../Routes/Coordinator';
+import Loading from '../../Components/Loading/Loading';
+import CircularColor from '../../Components/Loading/Loading';
 
 const Home = () => {
     const {filter, pagina} = useContext(GlobalStateContext);
@@ -74,7 +76,7 @@ const Home = () => {
         <Main>
             <Header/>
             <MovieList>
-                {getList()}
+              {isLoading ? CircularColor() : getList()}
             </MovieList>
             <Pag>
                 <Paginacao/>

@@ -81,7 +81,7 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 width:100%;
-height:50%;
+height:60%;
 background-color:#2D0C5E;
 position:absolute;
 z-index: 1;
@@ -154,27 +154,34 @@ color:white;
 `
 
 export const PosterImg = styled.img`
-width:310px;
-height:490px;
+width:330px;
+height:520px;
 border-radius: 10px;
 box-shadow: 0px 0px 8px 0px black;
 margin-top:130px;
 `
 
 export const MovieDescription = styled.div`
+display:flex;
+flex-direction: column;
+justify-content: space-evenly;
 width:60%;
-height:100%;
-margin-top:100px;
+height:80%;
+margin-top:50px;
 margin-left:25px;
 
 p{
     font-size: 16px;;
 }
 `
+export const DivSinopse= styled.div`
+margin-top:20px;
+`
 
 export const MovieSinopse = styled.b`
 font-size:20px;
 color:white;
+margin-top:20px;
 `
 
 export const Crew = styled.div`
@@ -193,7 +200,6 @@ export const CrewRow = styled.div`
 display:grid;
 grid-template-rows: repeat(2, 50px) ;
 grid-template-columns: repeat(3, 250px) ;
-margin-top:20px;
 `
 
 export const PercentRow = styled.div`
@@ -207,4 +213,8 @@ P{
     margin:0;
     margin-left:20px;
 }
+`
+
+export const PsinopseInfo = styled.p`
+margin-top:5px;
 `

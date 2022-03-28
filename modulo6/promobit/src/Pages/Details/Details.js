@@ -3,12 +3,13 @@ import MovieHeader from '../../Components/Header/MovieHeader';
 import { useParams } from 'react-router-dom';
 import useRequestData from "../../Hooks/useRequestData"
 import { api_Key } from '../../Constants/UrlBase';
-import { Main, Crew, CrewMember, CrewMemberImg, TitleCrew, TitleInfo, RecommendedList, Movie, Ptitle, Pdate, MovieImg} from './styled';
+import { Main, Crew, CrewMember, CrewMemberImg, TitleCrew, TitleInfo, RecommendedList, Movie, Ptitle, Pdate, MovieImg, Ptrailer, Precommended } from './styled';
 import { urlBaseImgs } from '../../Constants/UrlBase';
 import  no_image  from '../../Assets/no_image.png'
 import { FixDate } from '../../Services/FixDate';
 import { goToMovieDetail } from '../../Routes/Coordinator';
 import { useNavigate } from 'react-router-dom';
+import CircularColor from '../../Components/Loading/Loading';
 
 
 const Details = () => {
@@ -37,7 +38,7 @@ const Details = () => {
     const getList = () => {
         let array = []
         if(!recommended[0]){
-            return;
+            return <Precommended>Recomendações indisponíveis</Precommended>
         } else {
             for(let i = 0; i < 6; i++){
                 const date = FixDate(recommended[i].release_date);
@@ -61,7 +62,7 @@ const Details = () => {
         if(trailer[0]){
             return <iframe width="75%" height="700" src={`https://www.youtube.com/embed/${trailer[0].key}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> 
         } else {
-            return <b>Trailer indisponível</b>
+            return <Ptrailer>Trailer indisponível</Ptrailer>
         }
     }
         
@@ -76,7 +77,7 @@ const Details = () => {
             {trailer ? getTrailer() : <p>loading</p>}
             <TitleInfo><b>Recomendações</b></TitleInfo>
             <RecommendedList>
-                {recommended ? getList() : <p>loading</p>}
+                {recommended ? getList() : CircularColor()}
             </RecommendedList>
         </Main>
     )
