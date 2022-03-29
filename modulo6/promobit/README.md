@@ -18,6 +18,14 @@
 famous-work.surge.sh
 
 ### Imagens do projeto
+![home](https://user-images.githubusercontent.com/91346150/160604634-2c6ef0a1-9eee-49f9-94fd-6f98adc43f92.png)
+---
+![filter](https://user-images.githubusercontent.com/91346150/160604651-e67959fc-e0d3-481c-9f02-9459c372e8a2.png)
+---
+![detail](https://user-images.githubusercontent.com/91346150/160604658-ed9de5be-bd18-4d8b-ac31-97b74526d14a.png)
+---
+![detail2](https://user-images.githubusercontent.com/91346150/160604669-5ae443b9-6ff8-4948-8214-70b3dd8fd153.png)
+---
 
 ### 🎲 Rodando o projeto localmente 
 
