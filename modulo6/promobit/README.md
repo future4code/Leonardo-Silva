@@ -14,6 +14,9 @@
 - [x] React router dom
 - [x] API / <a href="https://developers.themoviedb.org/3/getting-started/introduction">themoviedb</a>
 
+### Deploy
+barbarous-tooth.surge.sh/
+
 ### 🎲 Rodando o projeto localmente 
 
 ```bash
