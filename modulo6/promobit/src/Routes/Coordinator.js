@@ -1,7 +1,7 @@
 export const goToHome = (navigate) => {
-    navigate("/")
-}
+  navigate("/");
+};
 
 export const goToMovieDetail = (navigate, id) => {
-    navigate(`/movie/${id}`)
-}
+  navigate(`/movie/${id}`);
+};

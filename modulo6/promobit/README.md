@@ -15,7 +15,7 @@
 - [x] API / <a href="https://developers.themoviedb.org/3/getting-started/introduction">themoviedb</a>
 
 ### Deploy
-barbarous-tooth.surge.sh/
+longing-show.surge.sh
 
 ### 🎲 Rodando o projeto localmente 
 

@@ -1,16 +1,16 @@
 import React from "react";
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
 import Router from "./Routes/Router";
-import GlobalStyle from './Constants/GlobalStyle';
+import GlobalStyle from "./Constants/GlobalStyle";
 import GlobalState from "./Context/GlobalState";
 
 function App() {
   return (
     <div>
-      <GlobalStyle/>
+      <GlobalStyle />
       <GlobalState>
         <BrowserRouter>
-          <Router/>
+          <Router />
         </BrowserRouter>
       </GlobalState>
     </div>
