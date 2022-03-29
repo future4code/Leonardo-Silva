@@ -23,6 +23,20 @@ max-width: 1500px;
 justify-content: space-around;
 margin-top:50px;
 gap: 25px 50px;
+
+@media (max-width: 650px){
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width:80%
+}  
+
+@media (max-height: 500px){
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width:80%;
+}
 `
 
 export const Movie = styled.div`

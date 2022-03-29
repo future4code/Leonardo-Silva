@@ -8,15 +8,13 @@ const theme = createTheme({
       primary: {
         main: '#2D0C5E',
       },
-      contrastThreshold: 3,
-      tonalOffset: 0.2,
     },
   });
 
 export default function CircularColor() {
   return (
       <ThemeProvider theme={theme}>
-        <Stack sx={{ color: 'grey.500' }} spacing={2} direction="row">
+        <Stack sx={{ color: 'grey.500' }} spacing={5} direction="row">
             <CircularProgress color="primary" size={100}/>
         </Stack>
     </ThemeProvider>

@@ -15,6 +15,7 @@ const MovieHeader = ({ dataMovie, dataCrew }) => {
         return person.name;
       }
     }
+    return;
   };
 
   const crewSearchName = (x) => {
@@ -116,7 +117,7 @@ const MovieHeader = ({ dataMovie, dataCrew }) => {
             <div>
             <TitleMovie>{dataMovie.title}</TitleMovie>
             <p>
-              • {dateFix()} (BR) • {genreSearch()} • {runtimeFix()}
+              {dataMovie.status} • {dateFix()} (BR) • {genreSearch()} • {runtimeFix()}
             </p>
             <PercentRow>
               <CircularStatic percentage={dataMovie.vote_average} />

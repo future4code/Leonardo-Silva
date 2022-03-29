@@ -7,6 +7,9 @@ flex-direction: column;
 width:100%;
 justify-content: center;
 align-items:center;
+
+@media (max-width: 650px){
+} 
 `
 
 export const Crew = styled.div`
@@ -40,6 +43,15 @@ margin:0;
 margin-top:250px;
 align-self: flex-start;
 margin-left: 13%;
+
+@media (max-width: 650px){
+  margin-top:50px;
+} 
+
+@media (max-height: 500px){
+  margin-top:50px;
+} 
+
 `
 
 export const TitleInfo = styled.p`
@@ -79,11 +91,22 @@ border-radius:10px;
 export const RecommendedList = styled.div`
 display:flex;
 flex-direction: row;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 width:75%;
 max-width: 1500px;
 margin-bottom:100px;
+
+@media (max-width: 650px){
+    flex-wrap: wrap;
+    gap:20px;
+} 
+
+@media (max-height: 500px){
+    flex-wrap: wrap;
+    gap:20px;
+    width:85%;
+} 
 `
 
 export const Precommended = styled.p`

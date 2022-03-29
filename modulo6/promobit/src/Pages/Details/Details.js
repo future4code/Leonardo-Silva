@@ -1,4 +1,4 @@
-import { React } from 'react'
+import { React, useEffect } from 'react'
 import MovieHeader from '../../Components/Header/MovieHeader';
 import { useParams } from 'react-router-dom';
 import useRequestData from "../../Hooks/useRequestData"
@@ -60,11 +60,15 @@ const Details = () => {
 
     const getTrailer = () => {
         if(trailer[0]){
-            return <iframe width="75%" height="700" src={`https://www.youtube.com/embed/${trailer[0].key}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> 
+            return <iframe width="75%" height="500px" src={`https://www.youtube.com/embed/${trailer[0].key}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> 
         } else {
             return <Ptrailer>Trailer indisponível</Ptrailer>
         }
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [params.id]);
         
     return(
         <Main>
@@ -74,7 +78,7 @@ const Details = () => {
                 {crewList}
             </Crew>  
             <TitleInfo><b>Trailer</b></TitleInfo>
-            {trailer ? getTrailer() : <p>loading</p>}
+            {trailer ? getTrailer() : CircularColor()}
             <TitleInfo><b>Recomendações</b></TitleInfo>
             <RecommendedList>
                 {recommended ? getList() : CircularColor()}

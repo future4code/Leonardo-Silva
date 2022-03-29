@@ -8,7 +8,6 @@ import GlobalStateContext from "../../Context/GlobalContextState";
 import { FixDate } from '../../Services/FixDate';
 import Paginacao from '../../Components/Paginacao/Paginacao';
 import { goToMovieDetail } from '../../Routes/Coordinator';
-import Loading from '../../Components/Loading/Loading';
 import CircularColor from '../../Components/Loading/Loading';
 
 const Home = () => {
@@ -70,14 +69,17 @@ const Home = () => {
     useEffect(() => {
         getMovies()
         getList()
+        window.scrollTo(0, 0)
     }, [filter, data]);
+
+    if(error){
+      console.log(error)
+    }
 
     return(
         <Main>
             <Header/>
-            <MovieList>
-              {isLoading ? CircularColor() : getList()}
-            </MovieList>
+              {isLoading ? CircularColor() : <MovieList> {getList()} </MovieList>}
             <Pag>
                 <Paginacao/>
             </Pag>

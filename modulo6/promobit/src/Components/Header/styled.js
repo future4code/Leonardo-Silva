@@ -5,6 +5,15 @@ display:flex;
 flex-direction: column;
 width:100%;
 height:45vh;
+
+
+@media (max-width: 650px){
+    height:auto;
+}  
+
+@media (max-height: 500px){
+    height:auto;
+} 
 `
 
 export const Head = styled.div`
@@ -73,6 +82,18 @@ h1{
 p{
     color:#FFFFFF;
 }
+
+@media (max-width: 650px){
+    h1{
+        font-size: 26px;
+    }
+}  
+
+@media (max-height: 500px){
+    h1{
+        font-size: 26px;
+    }
+} 
 `
 
 export const MovieInfo = styled.div`
@@ -88,13 +109,34 @@ z-index: 1;
 
 h1{
     font-size: 36px;
-    width:50%;
     color:#FFFFFF;
 }
 
 p{
     color:#FFFFFF;
 }
+
+@media (max-width: 650px){
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: unset;
+
+    h1{
+        font-size: 24px;
+    }
+} 
+
+@media (max-height: 500px){
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: unset;
+
+    h1{
+        font-size: 24px;
+    }
+} 
 `
 
 export const Filter = styled.div`
@@ -103,6 +145,10 @@ flex-wrap:wrap;
 flex-direction:row;
 justify-content: center;
 width:85%;
+
+@media (max-height: 500px){
+    margin-bottom: 20px;
+}
 `
 
 export const Option = styled.div`
@@ -122,6 +168,7 @@ p{
 :hover{
     cursor:pointer;
     background-color: #D18000;
+    transition: all 0.5s;
 }
 `
 
@@ -151,6 +198,10 @@ padding-right:4px;
 export const TitleMovie = styled.b`
 font-size:32px;
 color:white;
+
+@media (max-width: 650px){
+    font-size:28px;
+} 
 `
 
 export const PosterImg = styled.img`
@@ -159,6 +210,20 @@ height:520px;
 border-radius: 10px;
 box-shadow: 0px 0px 8px 0px black;
 margin-top:130px;
+
+@media (max-width: 650px){
+    position:absolute;
+    width:10em;
+    height:15em;
+    margin-top:50px;
+} 
+
+@media (max-height: 500px){
+    position:absolute;
+    width:10em;
+    height:15em;
+    margin-top:50px;
+} 
 `
 
 export const MovieDescription = styled.div`
@@ -173,6 +238,21 @@ margin-left:25px;
 p{
     font-size: 16px;;
 }
+
+@media (max-width: 650px){
+justify-content: center;
+min-width:80%;
+height:auto;
+margin-top:320px;
+} 
+
+@media (max-height: 500px){
+justify-content: center;
+min-width:80%;
+height:auto;
+margin-top:320px;
+} 
+
 `
 export const DivSinopse= styled.div`
 margin-top:20px;
@@ -200,6 +280,16 @@ export const CrewRow = styled.div`
 display:grid;
 grid-template-rows: repeat(2, 50px) ;
 grid-template-columns: repeat(3, 250px) ;
+
+@media (max-width: 650px){
+grid-template-rows: repeat(5, 50px) ;
+grid-template-columns: repeat(1, 250px) ;
+} 
+
+@media (max-height: 500px){
+grid-template-rows: repeat(3, 50px) ;
+grid-template-columns: repeat(2, 200px) ;
+}
 `
 
 export const PercentRow = styled.div`
