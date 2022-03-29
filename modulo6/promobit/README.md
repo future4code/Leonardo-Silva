@@ -15,7 +15,9 @@
 - [x] API / <a href="https://developers.themoviedb.org/3/getting-started/introduction">themoviedb</a>
 
 ### Deploy
-longing-show.surge.sh
+famous-work.surge.sh
+
+### Imagens do projeto
 
 ### 🎲 Rodando o projeto localmente 
 
