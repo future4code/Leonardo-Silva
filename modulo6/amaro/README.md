@@ -8,7 +8,7 @@
 
 ## Deploy
 
-Heroku -> http://amaroprojectlist.herokuapp.com/
+Heroku -> http://amaroproductlist.herokuapp.com/
 
 ### 🎲 Rodando o projeto localmente 
 
