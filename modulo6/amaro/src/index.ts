@@ -1,10 +1,21 @@
-import express, {Express} from 'express'
-import cors from 'cors'
-import dotenv from "dotenv";
+import app from "./app";
+import ControllerProducts from "./Controller/ControllerProducts";
 
-dotenv.config();
 
-const app: Express = express();
+app.post("/insert", ControllerProducts.insertProduct)
+app.get("/search/id", ControllerProducts.searchProductById)
+app.get("/search/name", ControllerProducts.searchProductByName)
+app.get("/search/tag", ControllerProducts.searchProductByTag)
 
-app.use(express.json());
-app.use(cors());
+/*
+CREATE TABLE amaro_products(  
+    id int NOT NULL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE amaro_tags(
+    product_id int NOT NULL,
+    tag VARCHAR(255) NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES amaro_products(id)
+)
+*/
