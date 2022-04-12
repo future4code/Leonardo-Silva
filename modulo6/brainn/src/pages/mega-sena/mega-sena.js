@@ -47,7 +47,6 @@ const Megasena = () => {
                     <option value={"timemania"}>TIMEMANIA</option>
                     <option value={"diadesorte"}>DIA DE SORTE</option>
                 </Select>
-                <button onClick={() => goToQuina(navigate)}>quina</button>
                 <Mega>
                     <MegaImg src={simbol}/>
                     <h1>MEGA-SENA</h1>
