@@ -1,10 +1,11 @@
-import { React, useEffect, useState } from 'react'
+import { React, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { BackWithColor, BackWithoutColor, Main, Mega, MegaImg, Concurso, Select, Circles, RowCircle, FinalText} from './styled'
 import simbol from '../../assets/simbol.png'
 import useRequestData from '../../hooks/useRequestData';
 import { base_url } from '../../constants/base_url'
 import onChangeOption from '../../hooks/useOnChange'
+import { goToQuina } from '../../routes/router';
 
 
 
@@ -46,6 +47,7 @@ const Megasena = () => {
                     <option value={"timemania"}>TIMEMANIA</option>
                     <option value={"diadesorte"}>DIA DE SORTE</option>
                 </Select>
+                <button onClick={() => goToQuina(navigate)}>quina</button>
                 <Mega>
                     <MegaImg src={simbol}/>
                     <h1>MEGA-SENA</h1>

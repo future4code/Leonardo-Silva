@@ -1,5 +1,5 @@
 export const goToMegaSena = (navigate) => {
-    navigate("/mega-sena")
+    navigate("/")
 }
 
 export const goToLotofacil = (navigate) => {
