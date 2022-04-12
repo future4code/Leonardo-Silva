@@ -1,7 +1,7 @@
 import { React } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const DiaDeSorte = () => {
+const Lotofacil = () => {
 
 
     return(
@@ -11,4 +11,4 @@ const DiaDeSorte = () => {
     )
 }
 
-export default DiaDeSorte
+export default Lotofacil

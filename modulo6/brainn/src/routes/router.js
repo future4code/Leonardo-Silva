@@ -10,8 +10,7 @@ export const goToLotomania = (navigate) => {
     navigate("/lotomania")
 }
 
-export const goToQuina= (navigate, id) => {
-    console.log(id)
+export const goToQuina= (navigate) => {
     navigate(`/quina`)
 }
 

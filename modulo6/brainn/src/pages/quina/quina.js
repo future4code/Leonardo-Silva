@@ -1,14 +1,14 @@
 import { React } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const DiaDeSorte = () => {
+const Quina = () => {
 
 
     return(
         <div>
-
+            QUINA
         </div>
     )
 }
 
-export default DiaDeSorte
+export default Quina
