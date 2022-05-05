@@ -1,43 +1,63 @@
-import { USER_ROLES, user, userBasic, feed, authenticationData } from "../types";
 import pokemonDatabase from "../data/pokemonData";
-import { MissingToken } from "../error/missingToken";
-import { MissingFields } from "../error/missingFields";
-import { UnauthorizedAcess } from "../error/unauthorizedAcess";
-import { InvalidCredentials, InvalidEmail } from "../error/invalidCredentials";
-import { UserNotFound, EmailNotFound , UsersNotFound} from "../error/notFound";
-import { EmailExists, PasswordShort } from "../error/generalError";
 
 class PokemonBussiness {
-  async signup(name: string, email: string, password: string, role: USER_ROLES) {
-   
+  async listAllPokemon(offset: string, orderBy: string) {
+    let page = "";
+    if (offset === "1") {
+      page = "0";
+    } else {
+      page = offset;
+    }
+
+    const result = await pokemonDatabase.listAllPokemon(page, orderBy);
+
+    if (!result[0]) {
+      return "Página Vazia";
+    }
+
+    return result;
   }
 
-  async login(email: string, password: string) {
-    
-  }
+  async searchPokemon(
+    type: string,
+    name: string,
+    id: string,
+    generation: string
+  ) {
+    if (type) {
+      const result = await pokemonDatabase.searchPokemonByType(type);
+      if (!result[0]) {
+        throw new Error("Digite um tipo válido");
+      }
+      return result;
+    }
+    if (name) {
+      const result = await pokemonDatabase.searchPokemonByName(name);
+      if (!result[0]) {
+        throw new Error("Nenhum pokemon encontrado");
+      }
+      return result;
+    }
+    if (id) {
+      const result = await pokemonDatabase.searchPokemonById(id);
+      if (!result[0]) {
+        throw new Error("Pokemon não encontrado");
+      }
+      return result;
+    }
+    if (generation) {
+      const result = await pokemonDatabase.searchPokemonByGeneration(
+        generation
+      );
+      if (!result[0]) {
+        throw new Error("Nenhum pokemon encontrado");
+      }
+      return result;
+    }
 
-  async getProfile(token: string) {
-  
-  }
-
-  async getOtherProfile(token: string, user_id: string) {
-    
-  }
-
-  async deleteUser(token: string, user_id: string) {
-  
-  }
-
-  async getFeed(token: string) {
-   
-  }
-
-  async getAllUsers(token: string) {
-   
-  }
-
-  async forgotPassword(email: string) {
-
+    if (!type && !name && !id && !generation) {
+      throw new Error("Nenhum parâmetro de busca selecionado.");
+    }
   }
 }
 

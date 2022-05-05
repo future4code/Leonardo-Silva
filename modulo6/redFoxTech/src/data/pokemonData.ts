@@ -1,79 +1,52 @@
 import { BaseDatabase } from "./connection";
-import { user } from "../types";
 
 class PokemonDatabase extends BaseDatabase {
-  private static TABLE_NAME = "cookenu_users";
+  private static TABLE_NAME = "pokemon_list";
 
-  public async signup(newUser: user): Promise<void> {
+  public async listAllPokemon(page: string, orderBy: string): Promise<any> {
     try {
-      await this.getConnection()
-        .insert({
-          id:newUser.id,
-          name:newUser.name,
-          email:newUser.email,
-          password:newUser.password,
-          role:newUser.role,
-        })
-        .into(PokemonDatabase.TABLE_NAME);
+      if (!page && !orderBy) {
+        const result = await this.getConnection()
+          .select("pokedex_number", "name", "atk", "def", "sta", "cp100_lvl40")
+          .from(PokemonDatabase.TABLE_NAME);
+        return result;
+      } else if (!page) {
+        const result = await this.getConnection()
+          .select("pokedex_number", "name", "atk", "def", "sta", "cp100_lvl40")
+          .from(PokemonDatabase.TABLE_NAME)
+          .orderBy([{ column: `${orderBy}`, order: "desc" }])
+          .limit(20)
+          .offset(0);
+        return result;
+      } else if (!orderBy) {
+        const result = await this.getConnection()
+          .select("pokedex_number", "name", "atk", "def", "sta", "cp100_lvl40")
+          .from(PokemonDatabase.TABLE_NAME)
+          .limit(20)
+          .offset(Number(page) * 20);
+        return result;
+      } else {
+        const result = await this.getConnection()
+          .select("pokedex_number", "name", "atk", "def", "sta", "cp100_lvl40")
+          .from(PokemonDatabase.TABLE_NAME)
+          .orderBy([{ column: `${orderBy}`, order: "desc" }])
+          .limit(20)
+          .offset(Number(page) * 20);
+        return result;
+      }
     } catch (error: any) {
       throw new Error(error.sqlMessage || error.message);
     }
   }
 
-  public async login(email: string): Promise<any> {
+  public async searchPokemonByType(type: string): Promise<any> {
     try {
-      const user = await this.getConnection()
-        .select()
-        .from(PokemonDatabase.TABLE_NAME)
-        .where({ email });
-   
-      return user;
-    } catch (error: any) {
-      throw new Error(error.sqlMessage || error.message);
-    }
-  }
-
-  public async getProfile(id: string): Promise<any> {
-    try {
-      const user = await this.getConnection()
-        .select("id", "name", "email")
-        .from(PokemonDatabase.TABLE_NAME)
-        .where({ id });
-        
-      return user;
-    } catch (error: any) {
-      throw new Error(error.sqlMessage || error.message);
-    }
-  }
-
-  public async deleteUser(id: string): Promise<void> {
-    try {
-      await this.getConnection()
-        .del()
-        .from(PokemonDatabase.TABLE_NAME)
-        .where({ id });
-    } catch (error: any) {
-      throw new Error(error.sqlMessage || error.message);
-    }
-  }
-
-  public async changePassword(newPassword: string, id: string): Promise<void> {
-    try {
-      await this.getConnection()
-        .update({ password: newPassword })
-        .where({ id: id })
-        .from(PokemonDatabase.TABLE_NAME);
-    } catch (error: any) {
-      throw new Error(error.sqlMessage || error.message);
-    }
-  }
-
-  public async searchProfileById(id: string): Promise<any> {
-    try {
+      console.log(type);
       const result = await this.getConnection()
-        .select()
+        .select("pokedex_number", "name", "type_1", "type_2")
         .from(PokemonDatabase.TABLE_NAME)
-        .where({ id });
+        .where({ type_1: type })
+        .orWhere({ type_2: type });
 
       return result;
     } catch (error: any) {
@@ -81,25 +54,38 @@ class PokemonDatabase extends BaseDatabase {
     }
   }
 
-  public async searchProfileByEmail(email: string): Promise<any> {
+  public async searchPokemonByName(name: string): Promise<any> {
     try {
+      console.log(name);
       const result = await this.getConnection()
-        .select()
+        .select("pokedex_number", "name")
         .from(PokemonDatabase.TABLE_NAME)
-        .where({ email });
+        .whereLike("name", `%${name}%`);
 
       return result;
     } catch (error: any) {
       throw new Error(error.sqlMessage || error.message);
     }
   }
-  public async getAllUsers(): Promise<any> {
+
+  public async searchPokemonById(id: string): Promise<any> {
     try {
       const result = await this.getConnection()
         .select()
         .from(PokemonDatabase.TABLE_NAME)
-        .orderBy("name")
+        .where({ pokedex_number: id });
+      return result;
+    } catch (error: any) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
 
+  public async searchPokemonByGeneration(generation: string): Promise<any> {
+    try {
+      const result = await this.getConnection()
+        .select("pokedex_number", "name")
+        .from(PokemonDatabase.TABLE_NAME)
+        .where({ generation: generation });
       return result;
     } catch (error: any) {
       throw new Error(error.sqlMessage || error.message);

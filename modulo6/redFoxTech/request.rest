@@ -1,107 +1,39 @@
-### Cadastro de usuário 
-POST http://localhost:3003/signup
+### listAllPokemon
+GET http://localhost:3003/listAll
 Content-Type: application/json
 
-{
-    "name":"",
-    "email":"",
-    "password":"",
-    "role":""
-}
-
-### Login
-POST http://localhost:3003/login
+### list All Pokemon With Pagination
+GET http://localhost:3003/listAll?&page=1
 Content-Type: application/json
 
-{
-    "email":"felipe@gmail.com",
-    "password":"fe123"
-}
-
-### Pegar informações do próprio perfil
-GET http://localhost:3003/user/profile
-Content-Type: application/json
-Authorization: 
-
-### Pegar informações do perfil de outro usuário 
-GET http://localhost:3003/user/:id
-Content-Type: application/json
-Authorization: 
-
-### Pegar informações de todos os usuário 
-GET http://localhost:3003/allusers
-Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzMDEwNzY0LWEwYTAtNDA1Yy04YTc1LTE2MjhlNzYyY2Q5YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NjI0MDg4NSwiZXhwIjoxNjQ2MzI3Mjg1fQ.v3orOIjCLOnBGBcFV52rWxWVbfDTjq9f5Per3ivwHzM
-
-### Criando receita
-POST http://localhost:3003/recipe
-Content-Type: application/json
-Authorization: 
-
-{
-    "title": "",
-    "description": "",
-    "recipe_img":""
-}
-
-### Pegar informações da receita
-GET http://localhost:3003/recipe/:id
-Content-Type: application/json
-Authorization: 
-
-### Pegar informações de todas as receita
-GET http://localhost:3003/allrecipes
-Content-Type: application/json
-Authorization: 
-
-### Seguir usuário
-POST http://localhost:3003/user/follow
-Content-Type: application/json
-Authorization: 
-
-{
-    "userToFollowId":""
-}
-
-### Deixar de seguir usuário
-DELETE http://localhost:3003/user/unfollow
-Content-Type: application/json
-Authorization: 
-
-{
-    "userToUnfollowId":""
-}
-
-### Pegar feed de receitas
-GET http://localhost:3003/user/feed
-Content-Type: application/json
-Authorization: 
-
-### Editar receita
-PUT http://localhost:3003/recipe/:id/edit
-Content-Type: application/json
-Authorization: 
-
-{
-    "title":"",
-    "description": "",
-    "recipe_img":""
-}
-
-### Deletar receita
-DELETE http://localhost:3003/recipe/:id/delete
-Content-Type: application/json
-Authorization: 
-
-### Deletar usuário
-DELETE http://localhost:3003/user/:id/delete
-Content-Type: application/json
-Authorization:
-
-### Esqueceu sua senha
-PUT http://localhost:3003/newPassword
+### searchPokemonByType
+GET http://localhost:3003/search?type=dragon
 Content-Type: application/json
 
-{
-    "email": "leozbroca@gmail.com"
-}
+### searchPokemonByName (primeira letra maiúscula)
+GET http://localhost:3003/search?name=Pikachu
+Content-Type: application/json
+
+### searchPokemonById 
+GET http://localhost:3003/search?id=143
+Content-Type: application/json
+
+### searchPokemonByGeneration
+GET http://localhost:3003/search?generation=3
+Content-Type: application/json
+
+### orderPokemonByAtk
+GET http://localhost:3003/listAll?orderBy=atk&page=1
+Content-Type: application/json
+
+### orderPokemonByDef
+GET http://localhost:3003/listAll?orderBy=def&page=1
+Content-Type: application/json
+
+### orderPokemonBySta
+GET http://localhost:3003/listAll?orderBy=sta&page=1
+Content-Type: application/json
+
+### orderPokemonByCP
+GET http://localhost:3003/listAll?orderBy=cp100_lvl40&page=1
+Content-Type: application/json

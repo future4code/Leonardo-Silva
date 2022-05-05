@@ -3,9 +3,12 @@ import { BaseDatabase } from "../data/connection";
 import pokemonBussiness from "../bussiness/pokemonBussiness";
 
 class PokemonController {
-  async signup(req: Request, res: Response): Promise<void> {
+  async listAllPokemon(req: Request, res: Response): Promise<void> {
     try {
-     
+      const offset = req.query.page as string;
+      const orderBy = req.query.orderBy as string;
+      const pokemons = await pokemonBussiness.listAllPokemon(offset, orderBy);
+      res.status(200).send({ pokemons });
     } catch (error: any) {
       res.status(400).send({
         message: error.message,
@@ -15,81 +18,19 @@ class PokemonController {
     }
   }
 
-  async login(req: Request, res: Response): Promise<void> {
+  async searchPokemon(req: Request, res: Response): Promise<void> {
     try {
-    
-    } catch (error: any) {
-      res.status(400).send({
-        message: error.message,
-      });
-    } finally {
-      await BaseDatabase.destroyConnection();
-    }
-  }
-
-  async getProfile(req: Request, res: Response): Promise<void> {
-    try {
-    
-    } catch (error: any) {
-      res.status(400).send({
-        message: error.message,
-      });
-    } finally {
-      await BaseDatabase.destroyConnection();
-    }
-  }
-
-  async getOtherProfile(req: Request, res: Response): Promise<void> {
-    try {
-     
-    } catch (error: any) {
-      res.status(400).send({
-        message: error.message,
-      });
-    } finally {
-      await BaseDatabase.destroyConnection();
-    }
-  }
-
-  async deleteUser(req: Request, res: Response): Promise<void> {
-    try {
-      
-    } catch (error: any) {
-      res.status(400).send({
-        message: error.message,
-      });
-    } finally {
-      await BaseDatabase.destroyConnection();
-    }
-  }
-
-  async getFeed(req: Request, res: Response): Promise<void> {
-    try {
-    
-    } catch (error: any) {
-      res.status(400).send({
-        message: error.message,
-      });
-    } finally {
-      await BaseDatabase.destroyConnection();
-    }
-  }
-
-  async getAllUsers(req: Request, res: Response): Promise<void> {
-    try {
-      
-    } catch (error: any) {
-      res.status(400).send({
-        message: error.message,
-      });
-    } finally {
-      await BaseDatabase.destroyConnection();
-    }
-  }
-
-  async forgotPassword(req: Request, res: Response): Promise<void> {
-    try {
-     
+      const type = req.query.type as string;
+      const name = req.query.name as string;
+      const id = req.query.id as string;
+      const generation = req.query.generation as string;
+      const pokemons = await pokemonBussiness.searchPokemon(
+        type,
+        name,
+        id,
+        generation
+      );
+      res.status(200).send({ pokemons });
     } catch (error: any) {
       res.status(400).send({
         message: error.message,
@@ -100,4 +41,4 @@ class PokemonController {
   }
 }
 
-export default new PokemonController()
+export default new PokemonController();
