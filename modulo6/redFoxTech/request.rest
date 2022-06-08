@@ -1,0 +1,39 @@
+### listAllPokemon
+GET http://localhost:3003/listAll
+Content-Type: application/json
+
+### list All Pokemon With Pagination
+GET http://localhost:3003/listAll?&page=1
+Content-Type: application/json
+
+### searchPokemonByType
+GET http://localhost:3003/search?type=dragon
+Content-Type: application/json
+
+### searchPokemonByName (primeira letra maiúscula)
+GET http://localhost:3003/search?name=Pikachu
+Content-Type: application/json
+
+### searchPokemonById 
+GET http://localhost:3003/search?id=143
+Content-Type: application/json
+
+### searchPokemonByGeneration
+GET http://localhost:3003/search?generation=3
+Content-Type: application/json
+
+### orderPokemonByAtk
+GET http://localhost:3003/listAll?orderBy=atk&page=1
+Content-Type: application/json
+
+### orderPokemonByDef
+GET http://localhost:3003/listAll?orderBy=def&page=1
+Content-Type: application/json
+
+### orderPokemonBySta
+GET http://localhost:3003/listAll?orderBy=sta&page=1
+Content-Type: application/json
+
+### orderPokemonByCP
+GET http://localhost:3003/listAll?orderBy=cp100_lvl40&page=1
+Content-Type: application/json
